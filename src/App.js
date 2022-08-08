@@ -6,9 +6,26 @@ import ChangePassword from "./components/accounting/ChangePassword";
 import ResetPassword from "./components/accounting/ResetPassword";
 import ResetCode from "./components/accounting/ResetCode";
 import { Routes, Route, Navigate } from "react-router-dom";
-function App() {
+import UploadVideo from "./components/video/UploadVideo";
+
+import { useEffect, useState } from "react";
+import React from "react";
+import { getUserFromStorage } from "./redex/actions/getUser";
+import { connect } from "react-redux";
+import Video from "./components/video/Video";
+function App(props) {
+  let { user } = props;
+  useEffect(() => {
+    if (!props.user.loaded) {
+      props.getUserFromStorage();
+      console.log(props.user);
+    }
+  }, [user]);
   return (
     <div className="App">
+      {/* <Video />
+      <UploadVideo /> */}
+
       <Routes>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/regesteration" element={<Registeration />}></Route>
@@ -19,5 +36,14 @@ function App() {
     </div>
   );
 }
-
-export default App;
+const mapdispatchtoprops = (dispatch) => {
+  return {
+    getUserFromStorage: () => dispatch(getUserFromStorage()),
+  };
+};
+const mapstatetoprops = (state) => {
+  return {
+    user: state.user,
+  };
+};
+export default connect(mapstatetoprops, mapdispatchtoprops)(App);

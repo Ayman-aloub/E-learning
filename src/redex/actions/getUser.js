@@ -3,7 +3,7 @@ export function getUserFromStorage() {
   let token = localStorage.getItem("token");
   let is_staff = localStorage.getItem("is_staff");
   return {
-    type: "STOREDUSER",
+    type: "LoadUSER",
     payload: { username: username, token: token, is_staff: is_staff },
   };
 }
