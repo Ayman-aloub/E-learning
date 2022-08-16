@@ -17,23 +17,23 @@ return (
                 <div className="row">
                     <div className="col-lg-4 col-md-6 mb-4 pt-5">
                         <div className="card shadow-sm border-0">
-                            <div className="card-body team">
-                                <p className="ext-uppercase m-5">E-learing Creative Team</p>
+                            <div className="card-body">
+                                <h3 className="ext-uppercase team mt-2">E-learing Creative Team</h3>
+                                <p className="small text-muted mb-0 mt-4">We are the e-learning team. We provide ICT services to the public and private sectors across the Middle East. ammar and shimaa,ayman,alaa, baraa is the founder and owner of the e-learning team.</p>
                             </div>
                         </div>
                     </div>
                     <div className="col-lg-4 col-md-6 mb-4 pt-5">
                         <div className="card shadow-sm border-0">
                             <div className="card-body">
-                                <div className="user-picture">
-                                    <img src="https://images.unsplash.com/photo-1582003457856-20898dd7e1ea?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=130&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=130" className="shadow-sm rounded-circle" height="130" width="130" />
+                                <div className="user-picture mb-2">
+                                    <img src="https://avatars.githubusercontent.com/u/75980929?s=400&u=deb61e8eb5fab9eb0be87223d413be2c4dab5983&v=4" className="shadow-sm rounded-circle" height="130" width="130" />
                                 </div>
                                 <div className="user-content">
                                     <h5 className="text-capitalize user-name">Shimaa Attallah</h5>
-                                    <p className=" text-capitalize text-muted small user-name">Web developer</p>
+                                    <p className=" text-capitalize text-muted small user-name">Full Stack Web developer</p>
                                     
-                                    <p className="small text-muted mb-0 mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nemo harum repellendus aut itaque. Temporibus quaerat dolores ut, cupiditate molestiae commodi! Distinctio praesentium, debitis aut minima doloribus earum
-                                        quia commodi.</p>
+                                    <p className="small text-muted mb-0 mt-4">I'm a Backend Developer with experience in Optimizing applications for maximum speed and scalability, Co-operating with other front-end developers.</p>
                                 </div>
                             </div>
                         </div>
@@ -41,14 +41,13 @@ return (
                     <div className="col-lg-4 col-md-6 mb-4 pt-5">
                         <div className="card shadow-sm border-0">
                             <div className="card-body">
-                                <div className="user-picture">
-                                    <img src="https://images.unsplash.com/photo-1492447166138-50c3889fccb1?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=130&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=130" className="shadow-sm rounded-circle" height="130" width="130" />
+                                <div className="user-picture mb-2">
+                                    <img src="https://avatars.githubusercontent.com/u/77470923?v=4" className="shadow-sm rounded-circle" height="130" width="130" />
                                 </div>
                                 <div className="user-content">
                                     <h5 className="text-capitalize user-name">Alaa Abouzied</h5>
-                                    <p className=" text-capitalize text-muted small user-name">Web developer</p>
-                                    <p className="small text-muted mb-0 mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nemo harum repellendus aut itaque. Temporibus quaerat dolores ut, cupiditate molestiae commodi! Distinctio praesentium, debitis aut minima doloribus earum
-                                        quia commodi.</p>
+                                    <p className=" text-capitalize text-muted small user-name">Full Stack Web developer</p>
+                                    <p className="small text-muted mb-0 mt-4">I'm a Backend Developer with experience in Optimizing applications for maximum speed and scalability, Co-operating with other front-end developers.</p>
                                 </div>
                             </div>
                         </div>
@@ -56,15 +55,14 @@ return (
                     <div className="col-lg-4 col-md-6 mb-4 pt-5">
                         <div className="card shadow-sm border-0">
                             <div className="card-body">
-                                <div className="user-picture">
-                                    <img src="https://i.picsum.photos/id/836/130/130.jpg?hmac=Sot_REUw5W-XSuE6FmCjT9JenhZfiNqZYs3AQbfrZsc" className="shadow-sm rounded-circle" height="130" width="130" />
+                                <div className="user-picture mb-2">
+                                    <img src="https://avatars.githubusercontent.com/u/51214702?v=4" className="shadow-sm rounded-circle" height="130" width="130" />
                                 </div>
                                 <div className="user-content">
                                     <h5 className="text-capitalize user-name">Ammar Werdani</h5>
-                                    <p className=" text-capitalize text-muted small user-name">Web developer</p>
+                                    <p className=" text-capitalize text-muted small user-name">Full Stack Web developer</p>
                                     
-                                    <p className="small text-muted mb-0 mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nemo harum repellendus aut itaque. Temporibus quaerat dolores ut, cupiditate molestiae commodi! Distinctio praesentium, debitis aut minima doloribus earum
-                                        quia commodi.</p>
+                                    <p className="small text-muted mb-0 mt-4">I'm a Backend Developer with experience in Optimizing applications for maximum speed and scalability, Co-operating with other front-end developers.</p>
                                 </div>
                             </div>
                         </div>
@@ -72,15 +70,14 @@ return (
                     <div className="col-lg-4 col-md-6 mb-4 pt-5">
                         <div className="card shadow-sm border-0">
                             <div className="card-body">
-                                <div className="user-picture">
-                                    <img src="https://images.unsplash.com/photo-1495603889488-42d1d66e5523?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=130&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=130" className="shadow-sm rounded-circle" height="130" width="130" />
+                                <div className="user-picture mb-2">
+                                    <img src="" className="shadow-sm rounded-circle" height="130" width="130" />
                                 </div>
                                 <div className="user-content">
                                     <h5 className="text-capitalize user-name">Ayman Aloub</h5>
-                                    <p className=" text-capitalize text-muted small user-name">Web developer</p>
+                                    <p className=" text-capitalize text-muted small user-name">Full Stack Web developer</p>
                                     
-                                    <p className="small text-muted mb-0 mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nemo harum repellendus aut itaque. Temporibus quaerat dolores ut, cupiditate molestiae commodi! Distinctio praesentium, debitis aut minima doloribus earum
-                                        quia commodi.</p>
+                                    <p className="small text-muted mb-0 mt-4">I'm a Backend Developer with experience in Optimizing applications for maximum speed and scalability, Co-operating with other front-end developers.</p>
                                 </div>
                             </div>
                         </div>
@@ -88,14 +85,13 @@ return (
                     <div className="col-lg-4 col-md-6 mb-4 pt-5">
                         <div className="card shadow-sm border-0">
                             <div className="card-body">
-                                <div className="user-picture">
-                                    <img src="https://images.unsplash.com/photo-1582003457856-20898dd7e1ea?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&h=130&ixid=eyJhcHBfaWQiOjF9&ixlib=rb-1.2.1&q=80&w=130" className="shadow-sm rounded-circle" height="130" width="130" />
+                                <div className="user-picture mb-2">
+                                    <img src="https://avatars.githubusercontent.com/u/107256567?v=4" className="shadow-sm rounded-circle" height="130" width="130" />
                                 </div>
                                 <div className="user-content">
                                     <h5 className="text-capitalize user-name">Baraa Fayezz</h5>
-                                    <p className=" text-capitalize text-muted small user-name">Web developer</p>
-                                    <p className="small text-muted mb-0 mt-5">Lorem ipsum dolor sit amet consectetur adipisicing elit. Amet nemo harum repellendus aut itaque. Temporibus quaerat dolores ut, cupiditate molestiae commodi! Distinctio praesentium, debitis aut minima doloribus earum
-                                        quia commodi.</p>
+                                    <p className=" text-capitalize text-muted small user-name">Full Stack Web developer</p>
+                                    <p className="small text-muted mb-0 mt-4">I'm a Backend Developer with experience in Optimizing applications for maximum speed and scalability, Co-operating with other front-end developers.</p>
                                 </div>
                             </div>
                         </div>
