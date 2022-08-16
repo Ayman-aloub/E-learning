@@ -20,6 +20,11 @@ function MyNavbar() {
             <NavLink to="/allcourses"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>Courses</NavLink>
             <NavLink to="/about"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>About us</NavLink>
             <NavLink to="/contact"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>Contact Us</NavLink>
+
+            {/* ----------------shimaa--------------------- */}
+            {/* <NavLink to="/aboutus"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>About us</NavLink>
+            <NavLink to="/contactus"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>Contact Us</NavLink> */}
+            {/* ----------------shimaa--------------------- */}
           </Nav>
           <Form className="d-flex">
             <Form.Control
@@ -65,7 +70,6 @@ function MyNavbar() {
               </NavDropdown.Item>
             </NavDropdown>
           </Nav>
-         
         </Navbar.Collapse>
       </Container>
     </Navbar>

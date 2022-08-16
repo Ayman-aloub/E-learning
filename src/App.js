@@ -13,6 +13,7 @@ import React from "react";
 import { getUserFromStorage } from "./redex/actions/getUser";
 import { connect } from "react-redux";
 import Video from "./components/video/Video";
+//-------------------shimaaa---------------------
 import CourseDetail from "./components/Review/CourseDetail";
 import AddReview from './components/Review/AddReview';
 import ContactUS from './components/Review/M_ContactUs';
@@ -35,6 +36,7 @@ function App(props) {
         <Route path="/changePassword" element={<ChangePassword />}></Route>
         <Route path="/resetpassword" element={<ResetPassword />}></Route>
         <Route path="/resetcode" element={<ResetCode />}></Route>
+        {/* --------------Review Shimaaa-------------- */}
         <Route path="/detail/:course_id" element={<CourseDetail />}/>
         <Route path="/addreview/:course_id" element={<AddReview />}/>
         <Route path="/contactus" element={<ContactUS />}/>
