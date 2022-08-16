@@ -33,7 +33,8 @@ function Login(props) {
         setUserlocal(
           response.data["username"],
           response.data["token"],
-          response.data["is_staff"]
+          response.data["is_staff"],
+          response.data["id"]
         );
         navigate(`/`);
       })
@@ -106,8 +107,8 @@ const mapStateToprops = (state) => {
 };
 const mapdispatchToprops = (dispatch) => {
   return {
-    setUserlocal: (username, password, is_staff) =>
-      dispatch(setUserLocaally(username, password, is_staff)),
+    setUserlocal: (username, password, is_staff, id) =>
+      dispatch(setUserLocaally(username, password, is_staff, id)),
   };
 };
 export default connect(mapStateToprops, mapdispatchToprops)(Login);

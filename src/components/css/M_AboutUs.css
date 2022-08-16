@@ -1,0 +1,163 @@
+/* @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap'); */
+
+/* *,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background-color: white;
+}
+
+.container {
+  height: 100vh;
+  margin: 3rem 1rem 1rem 1rem;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  width: 100vw;
+}
+
+header h1 {
+  font-family: 'PT Serif', serif;
+  font-weight: 700;
+  font-size: 2.25rem;
+  margin-bottom: 1rem;
+}
+
+header div h2 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+header div p {
+  font-size: 1.125rem;
+  line-height: 1.3125rem;
+  max-width: 25rem;
+}
+
+.main {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  margin: 3rem auto;
+}
+.profile {
+  width: 200px;
+  height: 300px;
+  position: relative;
+}
+.photo {
+  width: 140px;
+  height: 200px;
+}
+.role {
+  font-size: 0.7rem;
+  position: relative;
+  bottom: 40%;
+  left: 25%;
+  transform: rotate(90deg);
+}
+.name {
+  margin-top: -1rem;
+  font-weight: bold;
+}
+.profile:nth-child(2),
+.profile:nth-child(4),
+.profile:nth-child(6) {
+  transform: translateY(20%);
+}
+footer p {
+  text-align: center;
+  font-size: 0.7rem;
+  color: rgb(77, 76, 76);
+}
+
+footer p a {
+  text-decoration: none;
+  color: inherit;
+  font-weight: bold;
+}
+
+@media (min-width: 800px) {
+  .container {
+    margin: 4rem auto;
+    max-width: 800px;
+  }
+
+  header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+
+  header h1 {
+    width: 50%;
+  }
+  header div {
+    width: 50%;
+  }
+  .main {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    margin: 5rem auto;
+    grid-gap: 3rem;
+  }
+  .profile {
+    width: 250px;
+    height: 400px;
+  }
+  .photo {
+    width: 220px;
+    height: 320px;
+  }
+  .role {
+    font-size: 0.8rem;
+    position: relative;
+    bottom: 53%;
+    left: 41%;
+    transform: rotate(90deg);
+  }
+  .profile:nth-child(2),
+  .profile:nth-child(5) {
+    transform: translateY(20%);
+  }
+  .profile:nth-child(4),
+  .profile:nth-child(6) {
+    transform: translateY(0%);
+  }
+  footer p {
+    font-size: 1rem;
+  }
+} */
+
+#cards .card {
+    border-radius: 20px;
+    min-height: 100%;
+}
+.team{
+  font-weight: bold;
+  letter-spacing:2px;
+}
+#cards .heading-border {
+    position: absolute;
+    width: 100%;
+    top: 60%;
+}
+
+#cards .card .user-picture img {
+    position: absolute;
+    top: -20%;
+    right: 10%;
+    background: #f8f9fa!important;
+    padding: 10px;
+}
+
+#cards .card .user-content .user-name {
+    margin-right: 190px;
+}
