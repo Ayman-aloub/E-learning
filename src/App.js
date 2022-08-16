@@ -5,6 +5,9 @@ import Registeration from "./components/accounting/Registeration";
 import ChangePassword from "./components/accounting/ChangePassword";
 import ResetPassword from "./components/accounting/ResetPassword";
 import ResetCode from "./components/accounting/ResetCode";
+import Upload_assignment from "./components/assignment/Addassign";
+
+
 import { Routes, Route, Navigate } from "react-router-dom";
 function App() {
   return (
@@ -15,9 +18,12 @@ function App() {
         <Route path="/changePassword" element={<ChangePassword />}></Route>
         <Route path="/resetpassword" element={<ResetPassword />}></Route>
         <Route path="/resetcode" element={<ResetCode />}></Route>
+        <Route path="/uploads" element={<Upload_assignment />}></Route>
       </Routes>
     </div>
   );
 }
 
 export default App;
+
+
