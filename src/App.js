@@ -18,6 +18,23 @@ import CourseDetail from "./components/Review/CourseDetail";
 import AddReview from './components/Review/AddReview';
 import ContactUS from './components/Review/M_ContactUs';
 import AboutUS from './components/Review/M_AboutUs';
+// import MyHome from './components/Review/MyHome';
+import MyFooter from './components/Review/MyFooter';
+import Footer from "./components/Review/Footer/Footer";
+//-------------------alaaa---------------------
+import MyNavbar from './components/course/MyNavbar';
+import Home from './components/course/Home';
+import AddCourse from './components/course/AddCourse';
+import AddCategory from './components/course/AddCategory';
+import AllCourses from './components/course/AllCourses';
+import MyCourses from './components/course/MyCourses';
+import CoursesApi from './components/course/CoursesApi';
+import DeleteCourse from './components/course/DeleteCourse';
+import UpdateCourse from './components/course/UpdateCourse';
+// -------------------------------------------------
+import Error from './components/course/Error';
+
+
 function App(props) {
   let { user } = props;
   useEffect(() => {
@@ -28,6 +45,7 @@ function App(props) {
   }, [user]);
   return (
     <div className="App">
+      <MyNavbar />
       {/* <Video />
       <UploadVideo /> */}
       <Routes>
@@ -41,7 +59,21 @@ function App(props) {
         <Route path="/addreview/:course_id" element={<AddReview />}/>
         <Route path="/contactus" element={<ContactUS />}/>
         <Route path="/aboutus" element={<AboutUS />}/>
+        
+        {/* --------------alaa-------------- */}
+        <Route path="/" element={<Navigate to="/home"/>}/>
+        <Route path="/home" element={<Home />}/>
+        <Route path="/addcourse" element={<AddCourse />}/>
+        <Route path="/addcategory" element={<AddCategory />}/>
+        <Route path="/allcourses" element={<AllCourses />}/>
+        <Route path="/courseapi" element={<CoursesApi />}/>
+        <Route path="/mycourses" element={<MyCourses />}/>
+        <Route path="/delete/:course_id" element={<DeleteCourse />}/>
+        <Route path="/update/:course_id" element={<UpdateCourse />}/>
+        <Route path="*" element={<Error />}/>
       </Routes>
+      <MyFooter/>
+      <Footer />
     </div>
   );
 }
