@@ -21,6 +21,7 @@ import AboutUS from './components/Review/M_AboutUs';
 // import MyHome from './components/Review/MyHome';
 import MyFooter from './components/Review/MyFooter';
 import Footer from "./components/Review/Footer/Footer";
+import MyServices from "./components/Review/MyServices";
 //-------------------alaaa---------------------
 import MyNavbar from './components/course/MyNavbar';
 import Home from './components/course/Home';
@@ -72,6 +73,7 @@ function App(props) {
         <Route path="/update/:course_id" element={<UpdateCourse />}/>
         <Route path="*" element={<Error />}/>
       </Routes>
+      <MyServices/>
       <MyFooter/>
       <Footer />
     </div>

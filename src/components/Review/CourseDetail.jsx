@@ -65,17 +65,40 @@ function CourseDetail(props) {
 
     return (
     <>
-        <div className='container mt-3 d-flex'>
-            <div className='row d-flex'>
-                <img className='course_image' variant="top" src={course.course_image} alt={course.course_name}/>
-            </div>    
-            <div className="col-8 mt-4">
-                <h2>Course Title: {course.course_name}</h2>
-                <p>Course Description: {course.course_description}</p>
+    {/* <div id='detait-c' className="d-flex">
+    <div>
+    <Card>
+        <Card.Img src={course.course_image} alt={course.course_name} height="700"/>
+        <Card.ImgOverlay>
+            <Card.Text className="">Course Title: {course.course_name}</Card.Text>
+            <Card.Text>Course Description: {course.course_description}</Card.Text>
+        </Card.ImgOverlay>
+        </Card>
+    </div>
+    <div>
+         <Card>
+        <Card.Img src={course.course_image} alt={course.course_name} height="700"/>
+        <Card.ImgOverlay>
+            <Card.Text className="course mt-5 w-bold">Course Title: {course.course_name}</Card.Text>
+            <Card.Text>Course Description: {course.course_description}</Card.Text>
+        </Card.ImgOverlay>
+        </Card>
+    </div>
+    </div> */}
+        <div className='container-fluid '>
+        <div className='row d-flex detail'>   
+            <div className="col-lg-6 col-sm-12 col-md-12">
+                <h2 >Course Title: </h2>
+                <h3 className='mb-5'>{course.course_name}</h3>
+                <h2 >Course Description: </h2>
+                <p className='descrip'>{course.course_description}</p>
                 {/* <p className="fw-bold">Course Instructor: <a href="#">{course.course_Instructor}</a></p>
-                <p className="fw-bold">Rating: {course.course_rate}</p>
-                 */}
+                <p className="fw-bold">Rating: {course.course_rate}</p> */}
             </div>
+            <div className='col-lg-6 col-sm-12 col-md-12'>
+                <img variant="top" src={course.course_image} alt={course.course_name} height="500" width="600"/>
+            </div> 
+        </div>
         </div>
         {/* <div className="card mt-3 mx-4">
             <Card >
@@ -87,7 +110,7 @@ function CourseDetail(props) {
             </ListGroup>
             </Card>
         </div> */}
-        <div className='container mt-3 p-4'>
+        <div className='container mt-5'>
                 <div className='row d-flex R-review'>
                     {/* ------how to show review in course details------ */}
                     <h2><span>Course Reviews</span></h2>
@@ -98,7 +121,7 @@ function CourseDetail(props) {
                     </div>
                 </div>
                 <div id="Add-R">
-                    <h2 className='text-center mt-3'>Add Review</h2>
+                    <h2 className='text-center mt-5'>Add Review</h2>
                     <NavLink to={`/addreview/${course.id}`} className="btn btn-primary">Add Review</NavLink>
                     {/* -------form to add review------ */}
                     {/* <div id="review">

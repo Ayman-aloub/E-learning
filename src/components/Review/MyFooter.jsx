@@ -6,7 +6,7 @@ import { NavLink } from 'react-router-dom';
 
 export default function Footer() {
 return (
-    <MDBFooter bgColor='light' className='text-center text-lg-start text-muted mt-5'>
+    <MDBFooter className='text-center text-lg-start text-muted mt-5' style={{ backgroundColor: '#eee', textDecoration: 'none' }}>
       {/* <section className='d-flex justify-content-center justify-content-lg-between p-4 border-bottom'>
         <div className='me-5 d-none d-lg-block'>
           <span>Get connected with us on social networks:</span>
@@ -33,15 +33,13 @@ return (
           </a>
         </div>
       </section> */}
-
       <section className='py-2'>
         <MDBContainer className='text-center text-md-start mt-5'>
           <MDBRow className='mt-3'>
             {/* -------------------logo------------------ */}
             <MDBCol md="2" lg="2" xl="2" className='mx-auto mb-4'>
-            <img src={require("../img/logo.jpg")} class="logo" alt="" height="" width=""/>
+            <img src={require("../img/loggo.png")} class="logo" alt="" height="" width=""/>
             </MDBCol>
-
             <MDBCol md="3" lg="4" xl="3" className='mx-auto mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>
                 <MDBIcon fas icon="chalkboard-teacher" className="me-3 " />
@@ -52,30 +50,30 @@ return (
               </p>
             </MDBCol>
             {/* -------------------link------------------ */}
-            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4'>
+            <MDBCol md="3" lg="2" xl="2" className='mx-auto mb-4' >
               <h6 className='text-uppercase fw-bold mb-4'>Useful links</h6>
-              <NavLink to={`/allcourses`}><p className='text-reset'>
+              <NavLink to={`/allcourses`} style={{ textDecoration: 'none' }}><p className='text-reset'>
                   Courses
               </p></NavLink>
-              <NavLink to={`/aboutus`}><p className='text-reset'>
+              <NavLink to={`/aboutus`} style={{ textDecoration: 'none' }}><p className='text-reset'>
                   About Us
               </p></NavLink>
-              <NavLink to={`/contactus`}><p className='text-reset'>
+              <NavLink to={`/contactus`} style={{ textDecoration: 'none' }}><p className='text-reset'>
                   Contact Us
               </p></NavLink>
             </MDBCol>
             {/* -------------------Contact------------------ */}
             <MDBCol md="4" lg="3" xl="3" className='mx-auto mb-md-0 mb-4'>
               <h6 className='text-uppercase fw-bold mb-4'>Contact</h6>
-              <a href="https://maps.app.goo.gl/CJLq1WZBpC3bxjYv8" > <p>
+              <a style={{ textDecoration: 'none'  }} href="https://maps.app.goo.gl/CJLq1WZBpC3bxjYv8" > <p>
                 <MDBIcon icon="home" className="me-2" href="https://maps.app.goo.gl/CJLq1WZBpC3bxjYv8" />
                 Egypt,ITI Menofia-Branch
               </p></a>
-              <a href="mailto:ITIinfo@iti.gov.eg"><p>
+              <a style={{ textDecoration: 'none' }} href="https://mail.google.com/"><p>
                 <MDBIcon icon="envelope" className="me-3" />
                 ITIinfo@iti.gov.eg
               </p></a>
-              <a href='tel:+2 0109 072 0800w123'> <p>
+              <a style={{ textDecoration: 'none' }} href='tel:+2 0109 072 0800w123'> <p>
                 <MDBIcon icon="phone" className="me-3" /> +2 0109 072 0800
               </p></a>
             </MDBCol>
