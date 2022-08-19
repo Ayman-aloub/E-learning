@@ -87,7 +87,7 @@ return (
                         <div className="card shadow-sm border-0">
                             <div className="card-body">
                                 <div className="picture mb-2">
-                                    <img src="" className="shadow-sm rounded-circle" height="130" width="130" alt="img"/>
+                                    <img src="https://avatars.githubusercontent.com/u/45498918?v=4" className="shadow-sm rounded-circle" height="130" width="130" alt="img"/>
                                 </div>
                                 <div className="user-content">
                                     <h5 className="text-capitalize user-name">Ayman Aloub</h5>

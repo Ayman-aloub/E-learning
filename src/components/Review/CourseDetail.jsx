@@ -76,7 +76,7 @@ function CourseDetail(props) {
         </Card>
     </div>
     <div>
-         <Card>
+        <Card>
         <Card.Img src={course.course_image} alt={course.course_name} height="700"/>
         <Card.ImgOverlay>
             <Card.Text className="course mt-5 w-bold">Course Title: {course.course_name}</Card.Text>
@@ -89,9 +89,9 @@ function CourseDetail(props) {
         <div className='row d-flex detail'>   
             <div className="col-lg-6 col-sm-12 col-md-12">
                 <h2 >Course Title: </h2>
-                <h3 className='mb-5'>{course.course_name}</h3>
+                <h3 className='mb-5 text-muted'>{course.course_name}</h3>
                 <h2 >Course Description: </h2>
-                <p className='descrip'>{course.course_description}</p>
+                <p className='descrip text-muted'>{course.course_description}</p>
                 {/* <p className="fw-bold">Course Instructor: <a href="#">{course.course_Instructor}</a></p>
                 <p className="fw-bold">Rating: {course.course_rate}</p> */}
             </div>
