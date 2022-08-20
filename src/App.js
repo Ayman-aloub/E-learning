@@ -5,19 +5,13 @@ import Registeration from "./components/accounting/Registeration";
 import ChangePassword from "./components/accounting/ChangePassword";
 import ResetPassword from "./components/accounting/ResetPassword";
 import ResetCode from "./components/accounting/ResetCode";
-import Upload_assignment from "./components/assignment/Addassign";
-import AllAssignment from "./components/assignment/AllAssignments";
-
-
 import { Routes, Route, Navigate } from "react-router-dom";
-import UploadVideo from "./components/video/UploadVideo";
 
 import { useEffect, useState } from "react";
 import React from "react";
 import { getUserFromStorage } from "./redex/actions/getUser";
 import { connect } from "react-redux";
 import Video from "./components/video/Video";
-import Main from './components/course/Main';
 //-------------------shimaaa---------------------
 import CourseDetail from "./components/Review/CourseDetail";
 import AddReview from './components/Review/AddReview';
@@ -39,6 +33,9 @@ import CoursesApi from './components/course/CoursesApi';
 import DeleteCourse from './components/course/DeleteCourse';
 import UpdateCourse from './components/course/UpdateCourse';
 // -------------------------------------------------
+import Upload_assignment from "./components/assignment/Addassign";
+import AllAssignment from "./components/assignment/AllAssignments";
+import UploadVideo from "./components/video/UploadVideo";
 import Error from './components/course/Error';
 
 
@@ -55,7 +52,6 @@ function App(props) {
       <MyNavbar />
       {/* <Video />
       <UploadVideo /> */}
-      <Main />
       <ScrollArrow />
       <Routes>
         <Route path="/login" element={<Login />}></Route>
@@ -68,6 +64,22 @@ function App(props) {
         <Route path="/addreview/:course_id" element={<AddReview />}/>
         <Route path="/contactus" element={<ContactUS />}/>
         <Route path="/aboutus" element={<AboutUS />}/>
+        {/* --------------alaa-------------- */}
+        <Route path="/" element={<Navigate to="/home"/>}/>
+        <Route path="/home" element={<Home />}/>
+        <Route path="/addcourse" element={<AddCourse />}/>
+        <Route path="/addcategory" element={<AddCategory />}/>
+        <Route path="/allcourses" element={<AllCourses />}/>
+        <Route path="/courseapi" element={<CoursesApi />}/>
+        <Route path="/mycourses" element={<MyCourses />}/>
+        <Route path="/delete/:course_id" element={<DeleteCourse />}/>
+        <Route path="/update/:course_id" element={<UpdateCourse />}/>
+        {/* -------------------- ammar ----------------------------- */}
+        <Route path="/uploads" element={<Upload_assignment />}></Route>
+        <Route path="/video/:course_id" element={<Video />}></Route>
+        <Route path="/allassignment/:course_id" element={<AllAssignment />}/>
+
+        <Route path="*" element={<Error />}/>
       </Routes>
       <MyServices/>
       <MyFooter/>
@@ -75,9 +87,6 @@ function App(props) {
     </div>
   );
 }
-
-
-
 const mapdispatchtoprops = (dispatch) => {
   return {
     getUserFromStorage: () => dispatch(getUserFromStorage()),
@@ -89,3 +98,7 @@ const mapstatetoprops = (state) => {
   };
 };
 export default connect(mapstatetoprops, mapdispatchtoprops)(App);
+
+
+
+// search , coursapi , desigen, 

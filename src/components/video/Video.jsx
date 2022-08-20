@@ -5,6 +5,10 @@ import React, { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+import {Button} from 'react-bootstrap'
+import { NavLink } from 'react-router-dom';
+
+
 
 function Video(props) {
   const [video, videoSet] = useState({});
@@ -88,17 +92,30 @@ function submit(e){
                   ))}
                 </div>
               </div>
-            
-                    <br />
                     <Form onSubmit={submit}>
                     <br />
                     <MDBFile className="w-50" id='customFile' name="upload_assign" onChange={(e)=>handle(e)}/><br />
                     <br />
-                    <input type="submit" />
-                    </Form>
-                 
-        
+                    {/* <input type="submit" /> */}
+                    <div className="d-flex">
+                          <div >
+                            <Button className="btn" type="submit">submit</Button>
+                          </div>
+                          <div className="mx-3">
+                            <NavLink to={`/allassignment/${course_id}`} style={{ textDecoration: 'none', color: 'white' }}><p className=' btn btn-primary'>
+                              view assignment
+                            </p></NavLink>  
+                          </div>
+                    </div>
+                      
+                    
+                    </Form> 
+                    
+                       
             </div>
+            <br />
+                   
+                  
           </div>
         </div>
       </div>

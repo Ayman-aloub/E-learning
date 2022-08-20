@@ -1,9 +1,11 @@
 // import Button from 'react-bootstrap/Button';
 import './css/CardImage.css'
 import Form from 'react-bootstrap/Form';
+import {Button} from 'react-bootstrap'
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { useParams } from "react-router-dom";
+
 
 
 //http://127.0.0.1:8000/assignment/updategrad/9 
@@ -68,7 +70,7 @@ export default function AllAssignment() {
             <>
 
                 <div className="col-lg-4 col-md-6 col-sm-12 text-center pt-2 ">
-                <img src={require('./image/pdff.png')} />
+                <img className="image_video" src={require('./image/pdff.png')} />
                 <br/>
                 <a href={'http://127.0.0.1:8000'+assignment.upload_assign} target="_new" rel="noreferrer" className='text-light bg-success ' style={{ textDecoration: 'none' }}>
                 {assignment.id } - Show Assignment 
@@ -78,7 +80,9 @@ export default function AllAssignment() {
                 <input type="hidden" id="custId" name="custId" value={assignment.id}/>
                 <Form.Control  type="text" name="grades" placeholder="assignment grade" value={assignment.grades} onChange={(e)=>handle(e)} />
                 <br />
-                <input type="submit" />
+                {/* <input type="submit" /> */}
+                <Button class="btn" type="submit">Submit</Button>
+                {/* <NavLink to={`/contactus`} style={{ textDecoration: 'none', color: 'white' }}><Button class="btn" type="submit">Submit</Button></NavLink> */}
                 </Form>
                 </div>
             </>

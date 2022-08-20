@@ -90,7 +90,7 @@ return (
                                     <img src="https://avatars.githubusercontent.com/u/45498918?v=4" className="shadow-sm rounded-circle" height="130" width="130" alt="img"/>
                                 </div>
                                 <div className="user-content">
-                                    <h5 className="text-capitalize user-name">Ayman Aloub</h5>
+                                    <h5 className="text-capitalize user-name">Ayman Tarek</h5>
                                     <p className=" text-capitalize text-muted small user-name">Full Stack Web developer</p>
                                     
                                     <p className="small text-muted mb-0 mt-4">I'm a Backend Developer with experience in Optimizing applications for maximum speed and scalability, Co-operating with other front-end developers.</p>
