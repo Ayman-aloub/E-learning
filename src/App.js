@@ -6,12 +6,36 @@ import ChangePassword from "./components/accounting/ChangePassword";
 import ResetPassword from "./components/accounting/ResetPassword";
 import ResetCode from "./components/accounting/ResetCode";
 import Upload_assignment from "./components/assignment/Addassign";
+import AllAssignment from "./components/assignment/AllAssignments";
 
 
 import { Routes, Route, Navigate } from "react-router-dom";
-function App() {
+import UploadVideo from "./components/video/UploadVideo";
+
+import { useEffect, useState } from "react";
+import React from "react";
+import { getUserFromStorage } from "./redex/actions/getUser";
+import { connect } from "react-redux";
+import Video from "./components/video/Video";
+import Main from './components/course/Main';
+//-------------------shimaaa---------------------
+import CourseDetail from "./components/Review/CourseDetail";
+import AddReview from './components/Review/AddReview';
+import ContactUS from './components/Review/M_ContactUs';
+import AboutUS from './components/Review/M_AboutUs';
+function App(props) {
+  let { user } = props;
+  useEffect(() => {
+    if (!props.user.loaded) {
+      props.getUserFromStorage();
+      console.log(props.user);
+    }
+  }, [user]);
   return (
     <div className="App">
+      {/* <Video />
+      <UploadVideo /> */}
+      <Main />
       <Routes>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/regesteration" element={<Registeration />}></Route>
@@ -19,11 +43,28 @@ function App() {
         <Route path="/resetpassword" element={<ResetPassword />}></Route>
         <Route path="/resetcode" element={<ResetCode />}></Route>
         <Route path="/uploads" element={<Upload_assignment />}></Route>
+        <Route path="/video/:course_id" element={<Video />}></Route>
+        <Route path="/detail/:course_id" element={<CourseDetail />}/>
+        <Route path="/addreview/:course_id" element={<AddReview />}/>
+        <Route path="/contactus" element={<ContactUS />}/>
+        <Route path="/aboutus" element={<AboutUS />}/>
+        <Route path="/allassignment/:course_id" element={<AllAssignment />}/>
+
       </Routes>
     </div>
   );
 }
 
-export default App;
 
 
+const mapdispatchtoprops = (dispatch) => {
+  return {
+    getUserFromStorage: () => dispatch(getUserFromStorage()),
+  };
+};
+const mapstatetoprops = (state) => {
+  return {
+    user: state.user,
+  };
+};
+export default connect(mapstatetoprops, mapdispatchtoprops)(App);

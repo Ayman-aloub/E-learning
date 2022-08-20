@@ -12,7 +12,7 @@ export default function ResetPassword() {
     var { username } = event.target;
     loadingSet(true);
     axios
-      .post("http://127.0.0.1:8000/auth/resetpassword/", {
+      .post("http://127.0.0.1:8000/accounts/resetpassword/", {
         username: username.value,
       })
       .then((response) => {
