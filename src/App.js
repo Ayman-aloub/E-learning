@@ -23,6 +23,25 @@ import CourseDetail from "./components/Review/CourseDetail";
 import AddReview from './components/Review/AddReview';
 import ContactUS from './components/Review/M_ContactUs';
 import AboutUS from './components/Review/M_AboutUs';
+// import MyHome from './components/Review/MyHome';
+import MyFooter from './components/Review/MyFooter';
+import Footer from "./components/Review/Footer/Footer";
+import MyServices from "./components/Review/MyServices";
+import ScrollArrow from "./components/Review/ScrollArrow"
+//-------------------alaaa-------------------------
+import MyNavbar from './components/course/MyNavbar';
+import Home from './components/course/Home';
+import AddCourse from './components/course/AddCourse';
+import AddCategory from './components/course/AddCategory';
+import AllCourses from './components/course/AllCourses';
+import MyCourses from './components/course/MyCourses';
+import CoursesApi from './components/course/CoursesApi';
+import DeleteCourse from './components/course/DeleteCourse';
+import UpdateCourse from './components/course/UpdateCourse';
+// -------------------------------------------------
+import Error from './components/course/Error';
+
+
 function App(props) {
   let { user } = props;
   useEffect(() => {
@@ -33,24 +52,26 @@ function App(props) {
   }, [user]);
   return (
     <div className="App">
+      <MyNavbar />
       {/* <Video />
       <UploadVideo /> */}
       <Main />
+      <ScrollArrow />
       <Routes>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/regesteration" element={<Registeration />}></Route>
         <Route path="/changePassword" element={<ChangePassword />}></Route>
         <Route path="/resetpassword" element={<ResetPassword />}></Route>
         <Route path="/resetcode" element={<ResetCode />}></Route>
-        <Route path="/uploads" element={<Upload_assignment />}></Route>
-        <Route path="/video/:course_id" element={<Video />}></Route>
+        {/* --------------Review Shimaaa-------------- */}
         <Route path="/detail/:course_id" element={<CourseDetail />}/>
         <Route path="/addreview/:course_id" element={<AddReview />}/>
         <Route path="/contactus" element={<ContactUS />}/>
         <Route path="/aboutus" element={<AboutUS />}/>
-        <Route path="/allassignment/:course_id" element={<AllAssignment />}/>
-
       </Routes>
+      <MyServices/>
+      <MyFooter/>
+      <Footer />
     </div>
   );
 }

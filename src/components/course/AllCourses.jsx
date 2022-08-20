@@ -22,9 +22,21 @@ export default function AllCourses() {
   useEffect(()=>{
     getAllCourses(); 
   },[]);
+  // const searchcourseHandle = async (e) => {
+  //       let Key = e.target.value;
+  //       if (Key){
+  //         let result = await fetch(`http://127.0.0.1:8000/course/rest/generics/search/${Key}`)
+  //         result = await result.json()
+  //         if(result)
+  //           setCourses(result);
+  //       }else{
+  //         setCourses();
+  //       }
+  // }
   return (
     <div className="alert alert-light p-5 ">
       <h1  className='text-center'>All Courses </h1>
+      {/* <input type="" className='search-course-box' placeholder="Search Course" onChange={searchcourseHandle}/> */}
       <div className="container ">
         <div className="row g-3 mx-auto">
         
@@ -47,7 +59,6 @@ export default function AllCourses() {
                 </div>
             </>
             );
-             
           })}
           
         </div>
