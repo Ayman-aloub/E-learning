@@ -5,6 +5,8 @@ import {Button} from 'react-bootstrap'
 import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { useParams } from "react-router-dom";
+import {  useNavigate } from "react-router-dom";
+
 
 
 
@@ -13,6 +15,7 @@ import { useParams } from "react-router-dom";
 
 export default function AllAssignment() {
   let [assignments,setCourses] = useState([]);
+  let navigate = useNavigate();
   const [data,setData]=useState({
     grades:"",
   })
@@ -43,6 +46,7 @@ export default function AllAssignment() {
     .then((response)=>{
         setCourses(response.data);
         console.log(response.data);
+        navigate(`/video/${course_id}`);
     })
     .catch((error)=>{
       console.log(error);

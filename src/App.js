@@ -35,7 +35,7 @@ import UpdateCourse from './components/course/UpdateCourse';
 // -------------------------------------------------
 import Upload_assignment from "./components/assignment/Addassign";
 import AllAssignment from "./components/assignment/AllAssignments";
-import UploadVideo from "./components/video/UploadVideo";
+// import UploadVideo from "./components/video/UploadVideo";
 import Error from './components/course/Error';
 
 
@@ -75,7 +75,7 @@ function App(props) {
         <Route path="/delete/:course_id" element={<DeleteCourse />}/>
         <Route path="/update/:course_id" element={<UpdateCourse />}/>
         {/* -------------------- ammar ----------------------------- */}
-        <Route path="/uploads" element={<Upload_assignment />}></Route>
+        {/* <Route path="/uploads" element={<Upload_assignment />}></Route> */}
         <Route path="/video/:course_id" element={<Video />}></Route>
         <Route path="/allassignment/:course_id" element={<AllAssignment />}/>
 
