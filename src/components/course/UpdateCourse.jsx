@@ -7,9 +7,11 @@ import './css/FileUploadStyle.css'
 import Swal from "sweetalert2";
 import { connect } from "react-redux";
 import { useParams } from 'react-router-dom'
-
+import {  useNavigate } from "react-router-dom";
+import {useDocumentTitle} from "./setDocumentTitle"
 function UpdateCourse(props) {
-
+    const [document_title, setDoucmentTitle] = useDocumentTitle("Update Course");
+    let navigate = useNavigate();
     let {course_id} = useParams();
     // const { course_id } = props.match.params;
     const [cats,setCats]=useState([]);
@@ -70,6 +72,7 @@ function UpdateCourse(props) {
       function submit(e){
         console.log(e.target.course_image.files[0]);
         e.preventDefault();
+        navigate(`/mycourses`);
         axios.put(`http://localhost:8000/course/rest/generics/${course_id}`,{
           course_name:data.course_name,
           course_description:data.course_description,
@@ -86,6 +89,7 @@ function UpdateCourse(props) {
           'Authorization': `token ${props.user.token}`,
         }})
         .then(res=>{console.log("sahelha yarab",res.data);
+        navigate(`/mycourses`);
         return alert('Your course has been UPDATED successfully')
       })
       }
@@ -144,6 +148,7 @@ function UpdateCourse(props) {
 
         <Form.Group className="mb-3 ms-0" >
           <Form.Label className='float-start'><h5>Course Image:</h5></Form.Label>
+          <div className="alert alert-warning">image should be updated</div>
           <Form.Control  type="file" accept="image/*" name="course_image" className='mb-2' />
           {/* <img src={file} className='inputimg mt-2'/> */}
         </Form.Group>
@@ -157,7 +162,7 @@ function UpdateCourse(props) {
       <Form.Label className='float-start'><h5>Course student:</h5></Form.Label>
       <Form.Control  type="text"value={data.student_course_name} name="student_course_name" onChange={(e)=>handle(e)}/>
     </Form.Group> */}
-    <input type="submit" />
+    <input type="submit" className='btn btn-primary p-2'/>
   </Form>
 </div>
   )

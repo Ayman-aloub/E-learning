@@ -2,9 +2,11 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { connect } from "react-redux";
 import Form from 'react-bootstrap/Form';
-
+import {  useNavigate } from "react-router-dom";
+import {useDocumentTitle} from "./setDocumentTitle"
 function AddCourse(props){
-  
+    const [document_title, setDoucmentTitle] = useDocumentTitle("Add New Course");
+    let navigate = useNavigate();  
     const [cats,setCats]=useState([]);
     const [data,setData]=useState({
       course_name:"",
@@ -30,6 +32,7 @@ function AddCourse(props){
       console.log("done");
       console.log(e.target.course_image.files[0]);
       e.preventDefault();
+      navigate(`/mycourses`);
       axios.post("http://localhost:8000/course/upload_course/",{
         course_name:data.course_name,
         course_description:data.course_description,
@@ -47,6 +50,7 @@ function AddCourse(props){
         'Authorization': `token ${props.user.token}`,
       }})
       .then(res=>{console.log(res.data);
+        navigate(`/mycourses`);
         return alert('Your course has been CREATED successfully')})
     }
 
@@ -62,9 +66,11 @@ function AddCourse(props){
           axios.get("http://localhost:8000/category/list/")
           .then((res)=>{
             setCats(res.data)
+           
             console.log("yaraaaaaaaaaaaab:",res.data);
           });
         }catch(error){
+          
           console.log(error);
         }
       },[]);
@@ -103,18 +109,8 @@ return(
           {/* <img src={file} className='inputimg mt-2'/> */}
         </Form.Group>
 
-   
-        {/* <Form.Group className="mb-3 mt-1" >
-          <Form.Label className='float-start'><h5>Course Instructor:</h5></Form.Label>
-          <Form.Control  type="text"value={data.course_instructor} name="course_instructor" onChange={(e)=>handle(e)}/>
-        </Form.Group> */}
-
-        {/* <Form.Group className="mb-3 mt-1" >
-          <Form.Label className='float-start'><h5>Course student:</h5></Form.Label>
-          <Form.Control  type="text"value={data.student_course_name} name="student_course_name" onChange={(e)=>handle(e)}/>
-        </Form.Group> */}
-        <input type="submit" />
-        {/* <button>submit</button> */}
+        <input type="submit" className='btn btn-primary p-2' />
+       
       </Form>
     </div>
 );

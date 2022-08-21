@@ -1,8 +1,12 @@
 import { connect } from "react-redux";
 import Form from 'react-bootstrap/Form';
 import React, { useState, useEffect } from 'react';
+import {  useNavigate } from "react-router-dom";
 import axios from "axios";
+import {useDocumentTitle} from "./setDocumentTitle"
  function AddCategory(props) {
+    const [document_title, setDoucmentTitle] = useDocumentTitle("Add New Category");
+    let navigate = useNavigate(); 
     const [list,setList]=useState([]);
     const [cats,setCats]=useState([]);
     const [data,setData]=useState({
@@ -37,13 +41,8 @@ import axios from "axios";
           cats.some((category,index)=>{
             
             if(category.cat_name === data.cat_name){
-         // if(isFound){
               flag=false
-              // const newlist={list:[]}
-              // newlist[index]=[category.cat_name]
-              // setList(newlist)
               console.log("flag: ",flag);
-              // console.log("data from category:",category.cat_name,"     ","Entered data:",data.cat_name)
               return alert(`${data.cat_name} is already taken,please select new name`) 
             }
           })
@@ -60,6 +59,7 @@ import axios from "axios";
               'Authorization': `token ${props.user.token}`,
             }})
             .then(res=>{console.log(res.data);
+              navigate(`/mycourses`);
               return alert(`${data.cat_name} has been added successfully`)
             })
           }
@@ -77,7 +77,7 @@ return(
           <Form.Label className='float-start'><h5>Category Name:</h5></Form.Label>
           <Form.Control  type="text" name="cat_name" value={data.cat_name} onChange={(e)=>handle(e)}/>
         </Form.Group>
-        <button>Add</button>
+        <button className='btn btn-primary p-2'>Add</button>
       </Form>
       <h3> Already Created:</h3>
       <ul>

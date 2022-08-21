@@ -26,7 +26,7 @@ function MyNavbar() {
             <NavLink to="/contactus"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>Contact Us</NavLink>
             {/* ----------------shimaa--------------------- */}
           </Nav>
-          <Form className="d-flex">
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
               placeholder="Search"
@@ -34,18 +34,19 @@ function MyNavbar() {
               aria-label="Search"
             />
             <Button variant="outline-light">Search</Button>
-          </Form>
+          </Form> */}
           <Nav className="ms-auto"  >
           <NavDropdown
               id="nav-dropdown-dark-example"
               title="Register/Login"
               menuVariant="dark"
+              className='ms-5'
             >
               <NavDropdown.Item href="#action/3.1">
                 <NavLink className="me-2 btn btn-outline-light" to="/login" variant="outline-light">Sign in</NavLink>
               </NavDropdown.Item>
               <NavDropdown.Item href="#action/3.2">
-                <NavLink className="me-2 btn btn-outline-light" to="/signup" variant="outline-light">Sign Up</NavLink>
+                <NavLink className="me-2 btn btn-outline-light" to="/regesteration" variant="outline-light">Sign Up</NavLink>
               </NavDropdown.Item>
               <NavDropdown.Divider />
               <NavDropdown.Item href="#action/3.4">

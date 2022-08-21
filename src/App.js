@@ -29,7 +29,7 @@ import AddCourse from './components/course/AddCourse';
 import AddCategory from './components/course/AddCategory';
 import AllCourses from './components/course/AllCourses';
 import MyCourses from './components/course/MyCourses';
-import CoursesApi from './components/course/CoursesApi';
+// import CoursesApi from './components/course/CoursesApi';
 import DeleteCourse from './components/course/DeleteCourse';
 import UpdateCourse from './components/course/UpdateCourse';
 // -------------------------------------------------
@@ -70,7 +70,7 @@ function App(props) {
         <Route path="/addcourse" element={<AddCourse />}/>
         <Route path="/addcategory" element={<AddCategory />}/>
         <Route path="/allcourses" element={<AllCourses />}/>
-        <Route path="/courseapi" element={<CoursesApi />}/>
+        {/* <Route path="/courseapi" element={<CoursesApi />}/> */}
         <Route path="/mycourses" element={<MyCourses />}/>
         <Route path="/delete/:course_id" element={<DeleteCourse />}/>
         <Route path="/update/:course_id" element={<UpdateCourse />}/>
