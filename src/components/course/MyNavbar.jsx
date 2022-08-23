@@ -8,8 +8,25 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
+import {useEffect,useState} from 'react'
 
 function MyNavbar(props) {
+  // -----------------------------search----------------------------
+  // const [searchString,setsearchString]=useState({
+  //   'search':''
+  // });
+  // const handleChange=(event)=>{
+  //   setsearchString({
+  //     ...searchString,
+  //     [event.target.name]:event.target.value
+  //   })
+  // }
+  // const searchCourse =()=>{
+  //   if(searchString.search !=''){
+  //     window.location.href='/searchcourse/'+searchString.search
+  //   }
+  // }
+  // -----------------------------search----------------------------
   let studentDropdown = [{ label: "My Courses", path: "/mycourses" }];
   let instructorDropdown = [
     { label: "Add Course", path: "/addcourse" },
@@ -47,8 +64,6 @@ function MyNavbar(props) {
             >
               Courses
             </NavLink>
-            {/* <NavLink to="/about"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>About us</NavLink>
-            <NavLink to="/contact"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>Contact Us</NavLink> */}
 
             {/* ----------------shimaa--------------------- */}
             <NavLink
@@ -67,15 +82,19 @@ function MyNavbar(props) {
             </NavLink>
             {/* ----------------shimaa--------------------- */}
           </Nav>
-          {/*<Form className="d-flex">
+          {/* -----------------------------search---------------------------- */}
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
-              placeholder="Search"
-              className="me-2"
+              placeholder="Search by course Title"
+              className="me-2 "
               aria-label="Search"
+              name='search'
+              onChange={handleChange}
             />
-            <Button variant="outline-light">Search</Button>
-          </Form>*/}
+            <Button onClick={searchCourse} variant="outline-info" className='btn btn-primary text-white'>Search</Button>
+          </Form> */}
+          {/* -----------------------------search---------------------------- */}
           <Nav className="ms-auto">
             <NavDropdown
               id="nav-dropdown-dark-example"

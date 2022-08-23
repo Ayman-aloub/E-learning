@@ -22,6 +22,7 @@ import MyFooter from './components/Review/MyFooter';
 import Footer from "./components/Review/Footer/Footer";
 import MyServices from "./components/Review/MyServices";
 import ScrollArrow from "./components/Review/ScrollArrow"
+// import Search from "./components/Review/Search";
 //-------------------alaaa-------------------------
 import MyNavbar from './components/course/MyNavbar';
 import Home from './components/course/Home';
@@ -49,7 +50,7 @@ function App(props) {
   }, [user]);
   return (
     <div className="App">
-      <MyNavbar />
+      <MyNavbar /> 
       {/* <Video />
       <UploadVideo /> */}
       <ScrollArrow />
@@ -64,6 +65,7 @@ function App(props) {
         <Route path="/addreview/:course_id" element={<AddReview />}/>
         <Route path="/contactus" element={<ContactUS />}/>
         <Route path="/aboutus" element={<AboutUS />}/>
+        {/* <Route path="/searchcourse/:string" element={<Search/>} /> */}
         {/* --------------alaa-------------- */}
         <Route path="/" element={<Navigate to="/home"/>}/>
         <Route path="/home" element={<Home />}/>
