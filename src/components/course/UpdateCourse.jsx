@@ -7,9 +7,12 @@ import './css/FileUploadStyle.css'
 import Swal from "sweetalert2";
 import { connect } from "react-redux";
 import { useParams } from 'react-router-dom'
+import {  useNavigate } from "react-router-dom";
+import {useDocumentTitle} from "./setDocumentTitle"
 
 function UpdateCourse(props) {
-
+    const [document_title, setDoucmentTitle] = useDocumentTitle("Update Course");
+    let navigate = useNavigate();
     let {course_id} = useParams();
     // const { course_id } = props.match.params;
     const [cats,setCats]=useState([]);
@@ -86,6 +89,7 @@ function UpdateCourse(props) {
           'Authorization': `token ${props.user.token}`,
         }})
         .then(res=>{console.log("sahelha yarab",res.data);
+        navigate(`/mycourses`);
         return alert('Your course has been UPDATED successfully')
       })
       }
@@ -157,7 +161,7 @@ function UpdateCourse(props) {
       <Form.Label className='float-start'><h5>Course student:</h5></Form.Label>
       <Form.Control  type="text"value={data.student_course_name} name="student_course_name" onChange={(e)=>handle(e)}/>
     </Form.Group> */}
-    <input type="submit" />
+    <input type="submit" className='btn btn-primary p-2'/>
   </Form>
 </div>
   )

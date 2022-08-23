@@ -38,7 +38,6 @@ function DeleteCourse(props) {
         }).then((result)=>{
             if(result.isConfirmed){
                 try{
-                    navigate(`/mycourses`);
                     axios.delete(`http://localhost:8000/course/rest/generics/${course_id}`,
                     {headers:{
                       'content-type':'multipart/form-data',

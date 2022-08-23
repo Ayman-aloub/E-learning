@@ -36,7 +36,7 @@ export default function Registeration() {
         meseage: "",
       });
       axios
-        .post("http://127.0.0.1:8000/accounts/signup/", {
+        .post("https://ammaryasser.pythonanywhere.com/accounts/signup/", {
           username: username.value,
           password: password.value,
           email: email.value,

@@ -7,8 +7,10 @@ import 'bootstrap/dist/css/bootstrap.css';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import { NavLink } from 'react-router-dom';
+import { connect } from "react-redux";
 
-function MyNavbar() {
+
+function MyNavbar(props) {
   return (
     <Navbar bg="dark" variant="dark" expand="xl">
       <Container>
@@ -36,7 +38,28 @@ function MyNavbar() {
             <Button variant="outline-light">Search</Button>
           </Form>
           <Nav className="ms-auto"  >
-          <NavDropdown
+
+              props.user.token?
+            <ul class="navbar-nav ml-auto">
+              <li class="nav-item dropdown">
+                <a
+                  class="nav-link dropdown-toggle"
+                  href="#"
+                  id="userMenu"
+                  data-toggle="dropdown"
+                  aria-haspopup="true"
+                  aria-expanded="false"
+                >
+                </a>
+                <div
+                  class="dropdown-menu dropdown-menu-right"
+                  aria-labelledby="userMenu">
+                <NavLink className="me-2 btn btn-outline-light" to="/changePassword" variant="outline-light">Change password</NavLink>
+                  <div class="dropdown-divider"></div>
+                  <a class="dropdown-item" href="">Log out</a>
+                </div>
+              </li>
+          </ul>:<NavDropdown 
               id="nav-dropdown-dark-example"
               title="Register/Login"
               menuVariant="dark"
@@ -76,5 +99,10 @@ function MyNavbar() {
   );
 }
 
-export default MyNavbar;
-  
+
+const mapStateToprops = (state) => {
+  return {
+    user: state.user,
+  };
+};
+export default connect(mapStateToprops)(MyNavbar);

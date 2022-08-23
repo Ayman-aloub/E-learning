@@ -41,7 +41,7 @@ export default function ResetCode() {
       });
       axios
         .put(
-          "http://127.0.0.1:8000/auth/resetpasswordcode/",
+          "https://ammaryasser.pythonanywhere.com/accounts/resetpasswordcode/",
           {
             code: code.value,
             username: username,
@@ -70,8 +70,8 @@ export default function ResetCode() {
               type="text"
               placeholder="Enter code"
               name="code"
-              pattern="[0-9]{7}"
-              title="code contain 7 digits"
+              pattern="[0-9]{4}"
+              title="code contain 4 digits"
               required
             />
             <Form.Text className="text-muted">

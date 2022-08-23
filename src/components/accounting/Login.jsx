@@ -20,7 +20,7 @@ function Login(props) {
     loadingSet(true);
     let { username, password } = event.target;
     axios
-      .post("http://127.0.0.1:8000/accounts/signin/", {
+      .post("https://ammaryasser.pythonanywhere.com/accounts/signin/", {
         username: username.value,
         password: password.value,
       })

@@ -2,9 +2,12 @@ import React, { useState, useEffect } from 'react';
 import axios from "axios";
 import { connect } from "react-redux";
 import Form from 'react-bootstrap/Form';
+import {  useNavigate } from "react-router-dom";
+import {useDocumentTitle} from "./setDocumentTitle"
 
 function AddCourse(props){
-  
+    const [document_title, setDoucmentTitle] = useDocumentTitle("Add New Course");
+    let navigate = useNavigate();  
     const [cats,setCats]=useState([]);
     const [data,setData]=useState({
       course_name:"",
@@ -47,6 +50,7 @@ function AddCourse(props){
         'Authorization': `token ${props.user.token}`,
       }})
       .then(res=>{console.log(res.data);
+       navigate(`/mycourses`);
         return alert('Your course has been CREATED successfully')})
     }
 
@@ -113,7 +117,7 @@ return(
           <Form.Label className='float-start'><h5>Course student:</h5></Form.Label>
           <Form.Control  type="text"value={data.student_course_name} name="student_course_name" onChange={(e)=>handle(e)}/>
         </Form.Group> */}
-        <input type="submit" />
+        <input type="submit" className='btn btn-primary p-2' />
         {/* <button>submit</button> */}
       </Form>
     </div>

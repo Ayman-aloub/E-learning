@@ -17,7 +17,6 @@ export default function Home() {
           </div>
       </div>
         <NavLink to="/allcourses"><Button variant="primary">See All Courses</Button></NavLink>
-        <NavLink to="/courseapi" className='ms-3'><Button variant="primary">Courses Api</Button></NavLink>
       </div>
     
     </>

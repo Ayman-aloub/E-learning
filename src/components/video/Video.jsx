@@ -14,7 +14,7 @@ function Video(props) {
   const [video, videoSet] = useState({});
   const [videolist, videolistSet] = useState([]);
   let { course_id } = useParams();
-  let video_id = 1;
+  let video_id = 6;
 
   //new
   const [cats,setCats]=useState([]);
@@ -72,9 +72,19 @@ function submit(e){
         // errorSet(error.response.data[Object.keys(error.response.data)[0]]);
         // loadingSet(false);
       });
+      // try{
+      //   axios.get("http://localhost:8000/category/list/")
+      //   .then((res)=>{
+      //     console.log("yaraaaaaaaaaaaab:",res.data);
+      //       });
+      //     }catch(error){
+      //       console.log(error);
+      //     }
   }, [props.user]);
   console.log(video_id);
   return (
+    <div>
+    {props.user.is_staff == "true"?
     <div className="container mx-auto">
       <div className="w-100 ">
         <div className="m-5">
@@ -92,34 +102,73 @@ function submit(e){
                   ))}
                 </div>
               </div>
-                    <Form onSubmit={submit}>
-                    <br />
-                    <MDBFile className="w-50" id='customFile' name="upload_assign" onChange={(e)=>handle(e)}/><br />
-                    <br />
-                    {/* <input type="submit" /> */}
-                    <div className="d-flex">
-                          <div >
-                            <Button className="btn" type="submit">submit</Button>
-                          </div>
-                          <div className="mx-3">
-                            <NavLink to={`/allassignment/${course_id}`} style={{ textDecoration: 'none', color: 'white' }}><p className=' btn btn-primary'>
-                              view assignment
-                            </p></NavLink>  
-                          </div>
-                    </div>
+              <div className="col-6">
+                <Form onSubmit={submit}>
+                      <br />
+                      {/* <input type="submit" /> */}
+                      <div className="d-flex">
+                          
+                            <div className="mx-3">
+                              <NavLink to={`/allassignment/${course_id}`} style={{ textDecoration: 'none', color: 'white' }}><p className=' btn btn-primary'>
+                                view assignment
+                              </p></NavLink>  
+                            </div>
+                      </div>
+                        
                       
-                    
-                    </Form> 
-                    
-                       
+                      </Form>    
+              </div>
+                        
             </div>
-            <br />
-                   
-                  
+            <br />     
           </div>
         </div>
       </div>
     </div>
+    :
+    <div className="container mx-auto">
+    <div className="w-100 ">
+      <div className="m-5">
+        <ReactPlayer url={video.url} controls style={{ margin: "auto" }} />
+        <div className="container mt-5">
+          <div className="row">
+            <div className="col-6">
+              <div className="card">
+                {videolist.map((item, index) => (
+                  <div
+                    className="card bg-light m-2"
+                  >
+                    {item.title}
+                  </div>
+                ))}
+              </div>
+            
+            </div>
+            <div className="col-6">
+                  <Form onSubmit={submit}>
+                    
+                        <MDBFile className="w-50" id='customFile' name="upload_assign" onChange={(e)=>handle(e)}/><br />
+                        <br />
+                        <div className="d-flex">
+                              <div >
+                                <Button className="btn" type="submit">submit</Button>
+                              </div>
+                        </div>
+                        </Form> 
+               </div>  
+                 
+                 
+                     
+          </div>
+         
+                 
+                
+        </div>
+      </div>
+    </div>
+  </div>
+}</div>
+   
   );
 }
 const mapStateToprops = (state) => {

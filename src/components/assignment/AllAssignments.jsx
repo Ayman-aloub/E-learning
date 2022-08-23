@@ -46,7 +46,7 @@ export default function AllAssignment() {
     .then((response)=>{
         setCourses(response.data);
         console.log(response.data);
-        navigate(`/video/${course_id}`);
+        navigate(`/allassignment/${course_id}`);
     })
     .catch((error)=>{
       console.log(error);
@@ -81,8 +81,8 @@ export default function AllAssignment() {
                 </a>
                 <br />
                 <Form onSubmit={Postassignment}>
-                <input type="hidden" id="custId" name="custId" value={assignment.id}/>
-                <Form.Control  type="text" name="grades" placeholder="assignment grade" value={assignment.grades} onChange={(e)=>handle(e)} />
+                <input type="hidden" id="custId" name="custId" value={assignment.id} />
+                <Form.Control  type="text" name="grades" placeholder="assignment grade" value={assignment.grades} onChange={(e)=>handle(e)} required />
                 <br />
                 {/* <input type="submit" /> */}
                 <Button class="btn" type="submit">Submit</Button>

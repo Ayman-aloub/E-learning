@@ -47,7 +47,7 @@ export default function ChangePassword() {
       });
       axios
         .put(
-          "http://127.0.0.1:8000/auth/changepassword/",
+          "https://ammaryasser.pythonanywhere.com/accounts/changepassword/",
           {
             old_password: password.value,
             new_password: Newpassword.value,
