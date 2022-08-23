@@ -20,7 +20,7 @@ function CourseDetail(props) {
     const [description, setDescription] = useState('')
 
     function getCourseData(){
-        axios.get(`http://localhost:8000/course/rest/generics/${course_id}`)
+        axios.get(`https://ammaryasser.pythonanywhere.com/course/rest/generics/${course_id}`)
         .then((response)=>{
             setCourse(response.data);
             console.log("yarab:",response.data);
@@ -32,7 +32,7 @@ function CourseDetail(props) {
     useEffect(()=>{
         getCourseData();  
         try{
-            axios.get(`http://127.0.0.1:8000/api/review/index/course/${course_id}`).then((res)=>{
+            axios.get(`https://ammaryasser.pythonanywhere.com/api/review/index/course/${course_id}`).then((res)=>{
                 setReviews(res.data);
                 // console.log(res.data);
             })

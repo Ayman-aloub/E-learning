@@ -1,16 +1,45 @@
-import React from 'react'
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-import 'bootstrap/dist/css/bootstrap.css';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import { NavLink } from 'react-router-dom';
+import React from "react";
+import Container from "react-bootstrap/Container";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import "bootstrap/dist/css/bootstrap.css";
+import Button from "react-bootstrap/Button";
+import Form from "react-bootstrap/Form";
+import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-
+import {useEffect,useState} from 'react'
 
 function MyNavbar(props) {
+  // -----------------------------search----------------------------
+  // const [searchString,setsearchString]=useState({
+  //   'search':''
+  // });
+  // const handleChange=(event)=>{
+  //   setsearchString({
+  //     ...searchString,
+  //     [event.target.name]:event.target.value
+  //   })
+  // }
+  // const searchCourse =()=>{
+  //   if(searchString.search !=''){
+  //     window.location.href='/searchcourse/'+searchString.search
+  //   }
+  // }
+  // -----------------------------search----------------------------
+  let studentDropdown = [{ label: "My Courses", path: "/mycourses" }];
+  let instructorDropdown = [
+    { label: "Add Course", path: "/addcourse" },
+    { label: "Add Category", path: "/addcategory" },
+    { label: "My Courses", path: "/mycourses" },
+  ];
+
+  let loggedIn = [{ label: "Logout", path: "/logout" }];
+  let notLoggedIn = [
+    { label: "Sign in", path: "/login" },
+    { label: "Sign up", path: "/regesteration" },
+  ];
+
   return (
     <Navbar bg="dark" variant="dark" expand="xl">
       <Container>
@@ -18,79 +47,119 @@ function MyNavbar(props) {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <NavLink to="/home" className="me-3" style={{ color: 'white',textDecoration: 'none' }}>Home</NavLink>
-            <NavLink to="/allcourses"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>Courses</NavLink>
-            {/* <NavLink to="/about"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>About us</NavLink>
-            <NavLink to="/contact"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>Contact Us</NavLink> */}
+            <NavLink
+              to="/home"
+              className="me-3"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              Home
+            </NavLink>
+            <NavLink
+              to="/allcourses"
+              // className="me-3"
+              className={
+                props.user.is_staff === "false" ? "d-block me-3" : "d-none"
+              }
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              Courses
+            </NavLink>
 
             {/* ----------------shimaa--------------------- */}
-            <NavLink to="/aboutus"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>About us</NavLink>
-            <NavLink to="/contactus"className="me-3" style={{ color: 'white' ,textDecoration: 'none'}}>Contact Us</NavLink>
+            <NavLink
+              to="/aboutus"
+              className="me-3"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              About us
+            </NavLink>
+            <NavLink
+              to="/contactus"
+              className="me-3"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              Contact Us
+            </NavLink>
             {/* ----------------shimaa--------------------- */}
           </Nav>
-          <Form className="d-flex">
+          {/* -----------------------------search---------------------------- */}
+          {/* <Form className="d-flex">
             <Form.Control
               type="search"
-              placeholder="Search"
-              className="me-2"
+              placeholder="Search by course Title"
+              className="me-2 "
               aria-label="Search"
+              name='search'
+              onChange={handleChange}
             />
-            <Button variant="outline-light">Search</Button>
-          </Form>
-          <Nav className="ms-auto"  >
-
-              props.user.token?
-            <ul class="navbar-nav ml-auto">
-              <li class="nav-item dropdown">
-                <a
-                  class="nav-link dropdown-toggle"
-                  href="#"
-                  id="userMenu"
-                  data-toggle="dropdown"
-                  aria-haspopup="true"
-                  aria-expanded="false"
-                >
-                </a>
-                <div
-                  class="dropdown-menu dropdown-menu-right"
-                  aria-labelledby="userMenu">
-                <NavLink className="me-2 btn btn-outline-light" to="/changePassword" variant="outline-light">Change password</NavLink>
-                  <div class="dropdown-divider"></div>
-                  <a class="dropdown-item" href="">Log out</a>
-                </div>
-              </li>
-          </ul>:<NavDropdown 
+            <Button onClick={searchCourse} variant="outline-info" className='btn btn-primary text-white'>Search</Button>
+          </Form> */}
+          {/* -----------------------------search---------------------------- */}
+          <Nav className="ms-auto">
+            <NavDropdown
               id="nav-dropdown-dark-example"
-              title="Register/Login"
+              title={props.user.token ? props.user.username : "Register/Login"}
               menuVariant="dark"
             >
-              <NavDropdown.Item href="#action/3.1">
-                <NavLink className="me-2 btn btn-outline-light" to="/login" variant="outline-light">Sign in</NavLink>
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                <NavLink className="me-2 btn btn-outline-light" to="/signup" variant="outline-light">Sign Up</NavLink>
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-              <NavLink className="" to="/logout">Logout</NavLink>
-              </NavDropdown.Item>
+              {props.user.token
+                ? loggedIn.map((e, index) => {
+                    return (
+                      <NavDropdown.Item href="#action/3.4">
+                        <NavLink className="" to={e.path}>
+                          {e.label}
+                        </NavLink>
+                      </NavDropdown.Item>
+                    );
+                  })
+                : notLoggedIn.map((e, index) => {
+                    return (
+                      <NavDropdown.Item href="#action/3.1">
+                        <NavLink
+                          className="me-2 btn btn-outline-light"
+                          to={e.path}
+                          variant="outline-light"
+                        >
+                          {e.label}
+                        </NavLink>
+                      </NavDropdown.Item>
+                    );
+                  })}
             </NavDropdown>
           </Nav>
-          <Nav className="ms-auto"  >
-          <NavDropdown
+          <Nav className="ms-auto">
+            <NavDropdown
               id="nav-dropdown-dark-example"
               title="Dashboard"
               menuVariant="dark"
+              className={props.user.token ? "d-block" : "d-none"}
             >
-              <NavDropdown.Item href="#action/3.4">
-              <NavLink className="" to="/addcourse" >Add Course</NavLink>
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">
-              <NavLink className="" to="/addcategory" >Add Category</NavLink>
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.4">
-              <NavLink className="" to="/mycourses">My Courses</NavLink>
-              </NavDropdown.Item>
+              {props.user.is_staff === "true"
+                ? instructorDropdown.map((e, index) => {
+                    return (
+                      <NavDropdown.Item href="#action/3.4" key={index}>
+                        <NavLink
+                          to={e.path}
+                          className="me-3"
+                          style={{ color: "white", textDecoration: "none" }}
+                        >
+                          {e.label}
+                        </NavLink>
+                      </NavDropdown.Item>
+                    );
+                  })
+                : studentDropdown.map((e, index) => {
+                    return (
+                      <NavDropdown.Item href="#action/3.4" key={index}>
+                        <NavLink
+                          to={e.path}
+                          className="me-3"
+                          style={{ color: "white", textDecoration: "none" }}
+                        >
+                          {e.label}
+                        </NavLink>
+                      </NavDropdown.Item>
+                    );
+                  })}
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>
@@ -98,8 +167,6 @@ function MyNavbar(props) {
     </Navbar>
   );
 }
-
-
 const mapStateToprops = (state) => {
   return {
     user: state.user,

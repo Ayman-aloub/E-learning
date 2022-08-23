@@ -2,15 +2,20 @@ import axios from "axios";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { Route, useNavigate } from "react-router-dom";
+import { useParams } from "react-router-dom";
+
+
+
 function UploadVideo(props) {
+  let {course_id} =  useParams();
   function uploadvideosubmit(event) {
     event.preventDefault();
     console.log(event.target.url.files[0]);
     axios
       .post(
-        "http://127.0.0.1:8000/video/upload",
+        "https://ammaryasser.pythonanywhere.com/video/upload",
         {
-          course: parseInt(event.target.course.value),
+          course: course_id,
           title: event.target.title.value,
           url: event.target.url.files[0],
         },
@@ -35,7 +40,7 @@ function UploadVideo(props) {
       <form onSubmit={uploadvideosubmit} enctype="multipart/form-data">
         <input type="text" id="title" name="title" />
         <input type="file" id="video" name="url" />
-        <input type="number" id="number" name="course" />
+        {/* <input type="number" id="number" name="course" /> */}
         <input type="submit" />
       </form>
     </div>

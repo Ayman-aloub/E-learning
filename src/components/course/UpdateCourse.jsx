@@ -9,7 +9,6 @@ import { connect } from "react-redux";
 import { useParams } from 'react-router-dom'
 import {  useNavigate } from "react-router-dom";
 import {useDocumentTitle} from "./setDocumentTitle"
-
 function UpdateCourse(props) {
     const [document_title, setDoucmentTitle] = useDocumentTitle("Update Course");
     let navigate = useNavigate();
@@ -30,7 +29,7 @@ function UpdateCourse(props) {
 
     useEffect(()=>{
         try{
-          axios.get("http://localhost:8000/category/list/")
+          axios.get("https://ammaryasser.pythonanywhere.com/category/list/")
           .then((res)=>{
             setCats(res.data)
             console.log("yaraaaaaaaaaaaab:",res.data);
@@ -39,7 +38,7 @@ function UpdateCourse(props) {
           console.log(error);
         }
         try{
-          axios.get(`http://localhost:8000/course/rest/generics/${course_id}`)
+          axios.get(`https://ammaryasser.pythonanywhere.com/course/rest/generics/${course_id}`)
             .then((res)=>{
                 setData({
                     course_name:res.data.course_name,
@@ -73,7 +72,7 @@ function UpdateCourse(props) {
       function submit(e){
         console.log(e.target.course_image.files[0]);
         e.preventDefault();
-        axios.put(`http://localhost:8000/course/rest/generics/${course_id}`,{
+        axios.put(`https://ammaryasser.pythonanywhere.com/course/rest/generics/${course_id}`,{
           course_name:data.course_name,
           course_description:data.course_description,
           // course_rate:data.course_rate,
@@ -148,6 +147,7 @@ function UpdateCourse(props) {
 
         <Form.Group className="mb-3 ms-0" >
           <Form.Label className='float-start'><h5>Course Image:</h5></Form.Label>
+          <div className="alert alert-warning">image should be updated</div>
           <Form.Control  type="file" accept="image/*" name="course_image" className='mb-2' />
           {/* <img src={file} className='inputimg mt-2'/> */}
         </Form.Group>

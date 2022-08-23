@@ -33,7 +33,7 @@ function AddCourse(props){
       console.log("done");
       console.log(e.target.course_image.files[0]);
       e.preventDefault();
-      axios.post("http://localhost:8000/course/upload_course/",{
+      axios.post("https://ammaryasser.pythonanywhere.com/course/upload_course/",{
         course_name:data.course_name,
         course_description:data.course_description,
         // course_rate:data.course_rate,
@@ -63,7 +63,7 @@ function AddCourse(props){
     
     useEffect(()=>{
         try{
-          axios.get("http://localhost:8000/category/list/")
+          axios.get("https://ammaryasser.pythonanywhere.com/category/generics/category/")
           .then((res)=>{
             setCats(res.data)
             console.log("yaraaaaaaaaaaaab:",res.data);
@@ -97,7 +97,7 @@ return(
         <Form.Group className="mb-3" >
           <Form.Label className='float-start' name="cat_name"><h5>Course Category:</h5></Form.Label>
           <Form.Select aria-label="Default select example" value={data.course_category} name="course_category" id="category" onChange={(e)=>handle(e)}>
-            {cats.map((category,index)=>{return <option key={index} value={category.id}>{category.cat_name}</option>})}
+            {cats.map((category,index)=>{return <option key={index} value={category.pk}>{category.cat_name}</option>})}
           </Form.Select>
         </Form.Group>
 

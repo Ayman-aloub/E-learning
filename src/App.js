@@ -22,6 +22,7 @@ import MyFooter from './components/Review/MyFooter';
 import Footer from "./components/Review/Footer/Footer";
 import MyServices from "./components/Review/MyServices";
 import ScrollArrow from "./components/Review/ScrollArrow"
+// import Search from "./components/Review/Search";
 //-------------------alaaa-------------------------
 import MyNavbar from './components/course/MyNavbar';
 import Home from './components/course/Home';
@@ -32,10 +33,11 @@ import MyCourses from './components/course/MyCourses';
 import DeleteCourse from './components/course/DeleteCourse';
 import UpdateCourse from './components/course/UpdateCourse';
 // -------------------------------------------------
-import Upload_assignment from "./components/assignment/Addassign";
+// import Upload_assignment from "./components/assignment/Addassign";
 import AllAssignment from "./components/assignment/AllAssignments";
-// import UploadVideo from "./components/video/UploadVideo";
+import UploadVideo from "./components/video/UploadVideo";
 import Error from './components/course/Error';
+
 
 
 function App(props) {
@@ -48,7 +50,7 @@ function App(props) {
   }, [user]);
   return (
     <div className="App">
-      <MyNavbar />
+      <MyNavbar /> 
       {/* <Video />
       <UploadVideo /> */}
       <ScrollArrow />
@@ -63,6 +65,7 @@ function App(props) {
         <Route path="/addreview/:course_id" element={<AddReview />}/>
         <Route path="/contactus" element={<ContactUS />}/>
         <Route path="/aboutus" element={<AboutUS />}/>
+        {/* <Route path="/searchcourse/:string" element={<Search/>} /> */}
         {/* --------------alaa-------------- */}
         <Route path="/" element={<Navigate to="/home"/>}/>
         <Route path="/home" element={<Home />}/>
@@ -76,6 +79,7 @@ function App(props) {
         {/* <Route path="/uploads" element={<Upload_assignment />}></Route> */}
         <Route path="/video/:course_id" element={<Video />}></Route>
         <Route path="/allassignment/:course_id" element={<AllAssignment />}/>
+        <Route path="/uploadvideo/:course_id" element={<UploadVideo />}/>
 
         <Route path="*" element={<Error />}/>
       </Routes>

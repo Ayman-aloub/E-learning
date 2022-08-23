@@ -8,7 +8,7 @@
 //     let [course,setCourse] = useState([]);
 //     let {course_id} = useParams();
 //     function getCourseData(){
-//         axios.get(`http://localhost:8000/course/rest/generics/${course_id}`)
+//         axios.get(`https://ammaryasser.pythonanywhere.com/course/rest/generics/${course_id}`)
 //         .then((response)=>{
 //             setCourse(response.data);
 //             console.log("yarab:",response.data);

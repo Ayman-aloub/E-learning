@@ -13,8 +13,8 @@ import { NavLink } from 'react-router-dom';
 function Video(props) {
   const [video, videoSet] = useState({});
   const [videolist, videolistSet] = useState([]);
+  const [video_id, video_idtSet] = useState(1);
   let { course_id } = useParams();
-  let video_id = 6;
 
   //new
   const [cats,setCats]=useState([]);
@@ -23,10 +23,10 @@ function Video(props) {
   upload_assign:"",
   assignment_video:"",
 })
-  function change(index) {
-    console.log(index);
-    videoSet(videolist[index]);
-  }
+  function change(event) {
+  videoSet(videolist[event.target.value]);
+  video_idtSet(video.id);
+}
 // new 
 function handle(e){
     const newdata={...data}
@@ -40,7 +40,7 @@ function submit(e){
     console.log(e.target.upload_assign.files[0]);
     e.preventDefault();
     console.log('ddddddd',video_id)
-    axios.post("http://127.0.0.1:8000/assignment/assignmentm/",{
+    axios.post("https://ammaryasser.pythonanywhere.com/assignment/assignmentm/",{
       upload_assign: e.target.upload_assign.files[0],
       assignment_student:props.user.id,
       // assignment_student:data.assignment_student,
@@ -56,16 +56,16 @@ function submit(e){
   }
   useEffect(() => {
     axios
-      .get(`http://127.0.0.1:8000/video/list/${course_id}`, {
+      .get(`https://ammaryasser.pythonanywhere.com/video/${course_id}`, {
         headers: {
           Authorization: `token ${props.user.token}`,
         },
       })
       .then((response) => {
-        videolistSet(response.data);
-        videoSet(response.data[0]);
-        video_id = response.data[0].id;
-        console.log(response);
+          videolistSet(response.data);
+          videoSet(response.data[0]);
+          video_idtSet(response.data[0].id);
+          console.log(response);
       })
       .catch((error) => {
         console.log(error);
@@ -80,7 +80,7 @@ function submit(e){
       //     }catch(error){
       //       console.log(error);
       //     }
-  }, [props.user]);
+  }, [props.user.token]);
   console.log(video_id);
   return (
     <div>
@@ -93,11 +93,21 @@ function submit(e){
             <div className="row">
               <div className="col-6">
                 <div className="card">
-                  {videolist.map((item, index) => (
-                    <div
-                      className="card bg-light m-2"
-                    >
-                      {item.title}
+                {videolist.map((item, index) => (
+                    <div className="container card p-1 mb-2">
+                      <div className="row d-flex justify-content-between p-1">
+                        <div className="card col-6 bg-light m-2">
+                          {item.title}
+                        </div>
+                        <button
+                          type="button"
+                          className="btn  btn-info col-4 m-2"
+                          value={index}
+                          onClick={change}
+                        >
+                          watch
+                        </button>
+                      </div>
                     </div>
                   ))}
                 </div>

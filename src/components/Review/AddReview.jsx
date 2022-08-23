@@ -28,7 +28,7 @@ function AddReview(props) {
             user: Number(props.user.id)
         }
         
-        await axios.post('http://127.0.0.1:8000/api/review/index/', review)
+        await axios.post('https://ammaryasser.pythonanywhere.com/api/review/index/', review)
         navigate(-1);
     }
     return (

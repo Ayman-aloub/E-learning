@@ -16,7 +16,7 @@ import {useDocumentTitle} from "./setDocumentTitle"
     var flag = true;
     useEffect(()=>{
       try{
-        axios.get("http://localhost:8000/category/generics/category/")
+        axios.get("https://ammaryasser.pythonanywhere.com/category/generics/category/")
         .then((res)=>{
           setCats(res.data)
           console.log("yaraaaaaaaaaaaab:",res.data);
@@ -56,7 +56,7 @@ import {useDocumentTitle} from "./setDocumentTitle"
           console.log("flag: ",flag);
 
           if(flag){
-            axios.post("http://localhost:8000/category/generics/allcategory",{
+            axios.post("https://ammaryasser.pythonanywhere.com/category/generics/allcategory",{
               cat_name:data.cat_name,
             },{headers:{
               'content-type':'multipart/form-data',
@@ -88,13 +88,17 @@ return(
       <h3> Already Created:</h3>
       <ul>
         <li>
-        {cats.map((category,index)=>{return <option key={index} value={category.id}>{category.cat_name}</option>})}
+          {cats.map((category, index) => {
+            return (
+              <option key={index} value={category.id}>
+                {category.cat_name}
+              </option>
+            );
+          })}
         </li>
       </ul>
-     
-     
     </div>
-  )
+  );
 }
 const mapStateToprops = (state) => {
   return {

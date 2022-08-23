@@ -22,7 +22,7 @@ export default function AllAssignment() {
   let { course_id } = useParams();
   function getAllCourses(){
     console.log("course_id",course_id)
-    axios.get(`http://127.0.0.1:8000/assignment/assignments/${course_id}`)
+    axios.get(`https://ammaryasser.pythonanywhere.com/assignment/assignments/${course_id}`)
     .then((response)=>{
         setCourses(response.data);
         console.log(response.data);
@@ -36,7 +36,7 @@ export default function AllAssignment() {
 // to post assignemt 
   function Postassignment(e){
     e.preventDefault();
-    axios.put(`http://127.0.0.1:8000/assignment/updategrad/${e.target.custId.value}`,
+    axios.put(`https://ammaryasser.pythonanywhere.com/assignment/updategrad/${e.target.custId.value}`,
     // {'grades':e.target.grades.value},
     {'grades':e.target.grades.value},
     {headers:{
@@ -76,7 +76,7 @@ export default function AllAssignment() {
                 <div className="col-lg-4 col-md-6 col-sm-12 text-center pt-2 ">
                 <img className="image_video" src={require('./image/pdff.png')} />
                 <br/>
-                <a href={'http://127.0.0.1:8000'+assignment.upload_assign} target="_new" rel="noreferrer" className='text-light bg-success ' style={{ textDecoration: 'none' }}>
+                <a href={'https://ammaryasser.pythonanywhere.com'+assignment.upload_assign} target="_new" rel="noreferrer" className='text-light bg-success ' style={{ textDecoration: 'none' }}>
                 {assignment.id } - Show Assignment 
                 </a>
                 <br />

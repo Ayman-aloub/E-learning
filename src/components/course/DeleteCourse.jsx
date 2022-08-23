@@ -12,7 +12,7 @@ function DeleteCourse(props) {
     let navigate = useNavigate();
       useEffect(()=>{
         try{
-           axios.get(`http://localhost:8000/course/rest/generics/${course_id}`,
+           axios.get(`https://ammaryasser.pythonanywhere.com/course/rest/generics/${course_id}`,
            {headers:{
             'content-type':'multipart/form-data',
             'Accept': 'application/json, text/plain, */*',
@@ -38,7 +38,7 @@ function DeleteCourse(props) {
         }).then((result)=>{
             if(result.isConfirmed){
                 try{
-                    axios.delete(`http://localhost:8000/course/rest/generics/${course_id}`,
+                    axios.delete(`https://ammaryasser.pythonanywhere.com/course/rest/generics/${course_id}`,
                     {headers:{
                       'content-type':'multipart/form-data',
                       'Accept': 'application/json, text/plain, */*',
@@ -52,7 +52,7 @@ function DeleteCourse(props) {
                         // setData(res.data);
                         // window.location.reload();
                         try{
-                            axios.get(`http://localhost:8000/course/rest/generics/${course_id}`)
+                            axios.get(`https://ammaryasser.pythonanywhere.com/course/rest/generics/${course_id}`)
                           .then((res)=>{
                                   settotalResult(res.data.length);
                                   setData(res.data)
