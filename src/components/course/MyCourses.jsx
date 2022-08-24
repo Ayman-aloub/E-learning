@@ -21,7 +21,7 @@ function MyCourses(props) {
       url = `https://ammaryasser.pythonanywhere.com/course/studentcourses/`;
     }
 
-    console.log("url = ",url)
+    console.log("url = ", url);
     axios
       .get(url, {
         headers: {
@@ -43,12 +43,15 @@ function MyCourses(props) {
   function enroll(e) {
     console.log(props.user.token);
     axios
-      .get(`https://ammaryasser.pythonanywhere.com/course/enroll/${e.target.value}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `token ${props.user.token}`,
-        },
-      })
+      .get(
+        `https://ammaryasser.pythonanywhere.com/course/enroll/${e.target.value}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `token ${props.user.token}`,
+          },
+        }
+      )
       .then((res) => {
         alert(res.data.message);
       });
@@ -61,9 +64,12 @@ function MyCourses(props) {
           <h1 className="text-center ">My Courses </h1>
           <div className="container ">
             <div className="row g-3 mx-auto">
-              {courses.map((course) => {
+              {courses.map((course, idx) => {
                 return (
-                  <div className="col-lg-4 col-md-6 col-sm-12 text-center pt-2">
+                  <div
+                    className="col-lg-4 col-md-6 col-sm-12 text-center pt-2"
+                    key={idx}
+                  >
                     <Card style={{ width: "18rem" }} className="me-3 mt-3">
                       <Card.Img
                         variant="top"
@@ -87,7 +93,10 @@ function MyCourses(props) {
                           {" "}
                           Show Details
                         </NavLink>
-                        <NavLink to={`/uploadvideo/${course.id}`} className="btn btn-primary mb-2">
+                        <NavLink
+                          to={`/uploadvideo/${course.id}`}
+                          className="btn btn-primary mb-2"
+                        >
                           {" "}
                           Add Video
                         </NavLink>
@@ -121,9 +130,12 @@ function MyCourses(props) {
           <h1 className="text-center ">My Courses </h1>
           <div className="container ">
             <div className="row g-3 mx-auto">
-              {courses.map((course) => {
+              {courses.map((course, idx) => {
                 return (
-                  <div className="col-lg-4 col-md-6 col-sm-12 text-center pt-2">
+                  <div
+                    className="col-lg-4 col-md-6 col-sm-12 text-center pt-2"
+                    key={idx}
+                  >
                     <Card style={{ width: "18rem" }} className="me-3 mt-3">
                       <Card.Img
                         variant="top"
@@ -136,7 +148,9 @@ function MyCourses(props) {
                           Course Title:{course.course_name}
                         </Card.Title>
                         <Card.Text className=" mt-3">
-                          <p>Course Cotegory:{course.course_category}</p>
+                          <p>
+                            Course Cotegory:{course.course_category.cat_name}
+                          </p>
                         </Card.Text>
                         <NavLink
                           to={`/detail/${course.id}`}
@@ -145,7 +159,7 @@ function MyCourses(props) {
                           {" "}
                           Show Details
                         </NavLink>
-                        <button
+                        {/*<button
                           className=" btn btn-primary mb-2 ms-2"
                           name="enroll"
                           value={course.id}
@@ -153,7 +167,7 @@ function MyCourses(props) {
                         >
                           {" "}
                           Enroll
-                        </button>
+                </button>*/}
                       </Card.Body>
                     </Card>
                   </div>

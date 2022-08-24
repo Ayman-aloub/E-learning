@@ -10,6 +10,7 @@ import { connect } from "react-redux";
 function AllCourses(props) {
   const [document_title, setDoucmentTitle] = useDocumentTitle("All Courses");
   let [courses, setCourses] = useState([]);
+
   function getAllCourses() {
     axios
       .get(`https://ammaryasser.pythonanywhere.com/course/rest/generics/`)
@@ -28,12 +29,15 @@ function AllCourses(props) {
   function enroll(e) {
     console.log(props.user.token);
     axios
-      .get(`https://ammaryasser.pythonanywhere.com/course/enroll/${e.target.value}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `token ${props.user.token}`,
-        },
-      })
+      .get(
+        `https://ammaryasser.pythonanywhere.com/course/enroll/${e.target.value}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `token ${props.user.token}`,
+          },
+        }
+      )
       .then((res) => {
         alert(res.data.message);
       });
@@ -44,39 +48,40 @@ function AllCourses(props) {
       <h1 className="text-center">All Courses </h1>
       <div className="container ">
         <div className="row g-3 mx-auto">
-          {courses.map((course) => {
+          {courses.map((course, idx) => {
             return (
-              <>
-                <div className="col-lg-4 col-md-6 col-sm-12 text-center pt-2 ">
-                  <Card style={{ width: "18rem" }} className="me-3 mt-3">
-                    <Card.Img
-                      variant="top"
-                      src={course.course_image}
-                      className="rounded course_image mt-2 ms-1"
-                      alt={course.course_name}
-                    />
-                    <Card.Body>
-                      <Card.Title>Course Title:{course.course_name}</Card.Title>
-                      <NavLink
-                        to={`/detail/${course.id}`}
-                        className=" btn btn-info me-2 "
-                      >
-                        {" "}
-                        Show Details
-                      </NavLink>
-                      <button
-                        className=" btn btn-primary mb-2 ms-2"
-                        name="enroll"
-                        value={course.id}
-                        onClick={enroll}
-                      >
-                        {" "}
-                        Enroll
-                      </button>
-                    </Card.Body>
-                  </Card>
-                </div>
-              </>
+              <div
+                className="col-lg-4 col-md-6 col-sm-12 text-center pt-2 "
+                key={idx}
+              >
+                <Card style={{ width: "18rem" }} className="me-3 mt-3">
+                  <Card.Img
+                    variant="top"
+                    src={course.course_image}
+                    className="rounded course_image mt-2 ms-1"
+                    alt={course.course_name}
+                  />
+                  <Card.Body>
+                    <Card.Title>Course Title:{course.course_name}</Card.Title>
+                    <NavLink
+                      to={`/detail/${course.id}`}
+                      className=" btn btn-info mt-3 me-2 "
+                    >
+                      {" "}
+                      Show Details
+                    </NavLink>
+                    <button
+                      className=" btn btn-primary mt-3 ms-2"
+                      name="enroll"
+                      value={course.id}
+                      onClick={enroll}
+                    >
+                      {" "}
+                      Enroll
+                    </button>
+                  </Card.Body>
+                </Card>
+              </div>
             );
           })}
         </div>

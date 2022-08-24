@@ -8,7 +8,7 @@ import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
-import {useEffect,useState} from 'react'
+import { useEffect, useState } from "react";
 
 function MyNavbar(props) {
   // -----------------------------search----------------------------
@@ -58,7 +58,7 @@ function MyNavbar(props) {
               to="/allcourses"
               // className="me-3"
               className={
-                props.user.is_staff === "false" ? "d-block me-3" : "d-none"
+                props.user.is_staff === "true" ? "d-none" : "d-block me-3"
               }
               style={{ color: "white", textDecoration: "none" }}
             >
@@ -104,7 +104,7 @@ function MyNavbar(props) {
               {props.user.token
                 ? loggedIn.map((e, index) => {
                     return (
-                      <NavDropdown.Item href="#action/3.4">
+                      <NavDropdown.Item key={index}>
                         <NavLink className="" to={e.path}>
                           {e.label}
                         </NavLink>
@@ -113,7 +113,7 @@ function MyNavbar(props) {
                   })
                 : notLoggedIn.map((e, index) => {
                     return (
-                      <NavDropdown.Item href="#action/3.1">
+                      <NavDropdown.Item key={index}>
                         <NavLink
                           className="me-2 btn btn-outline-light"
                           to={e.path}
@@ -136,7 +136,7 @@ function MyNavbar(props) {
               {props.user.is_staff === "true"
                 ? instructorDropdown.map((e, index) => {
                     return (
-                      <NavDropdown.Item href="#action/3.4" key={index}>
+                      <NavDropdown.Item key={index}>
                         <NavLink
                           to={e.path}
                           className="me-3"
@@ -149,7 +149,7 @@ function MyNavbar(props) {
                   })
                 : studentDropdown.map((e, index) => {
                     return (
-                      <NavDropdown.Item href="#action/3.4" key={index}>
+                      <NavDropdown.Item key={index}>
                         <NavLink
                           to={e.path}
                           className="me-3"
