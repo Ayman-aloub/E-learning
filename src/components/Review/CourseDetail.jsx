@@ -139,7 +139,7 @@ function CourseDetail(props) {
                 );
               })
             ) : (
-              <p className="text-danger"> No reviews for this product </p>
+              <p className="text-danger"> No reviews for this Course. </p>
             )}
           </div>
         </div>
