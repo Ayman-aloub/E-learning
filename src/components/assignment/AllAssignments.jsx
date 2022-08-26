@@ -46,7 +46,7 @@ export default function AllAssignment() {
     .then((response)=>{
         setCourses(response.data);
         console.log(response.data);
-        navigate(`/allassignment/${course_id}`);
+        navigate(`/mycourses`);
     })
     .catch((error)=>{
       console.log(error);
@@ -85,6 +85,7 @@ export default function AllAssignment() {
                 <Form.Control  type="text" name="grades" placeholder="assignment grade" value={assignment.grades} onChange={(e)=>handle(e)} required />
                 <br />
                 {/* <input type="submit" /> */}
+                
                 <Button class="btn" type="submit">Submit</Button>
                 {/* <NavLink to={`/contactus`} style={{ textDecoration: 'none', color: 'white' }}><Button class="btn" type="submit">Submit</Button></NavLink> */}
                 </Form>

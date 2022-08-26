@@ -56,6 +56,7 @@ export default function Registeration() {
   return (
     <div className="full-height bg-light container-fluid w-100 d-flex justify-content-center text-start align-items-center">
       <div className="col-sm-8 col-md-6 col-lg-4 bg-white p-3">
+        <br />
         <Form onSubmit={RegisterFormHandler}>
           <Form.Group className="mb-3" controlId="formBasicusername">
             <Form.Label>user name</Form.Label>

@@ -10,8 +10,8 @@ function MySlider() {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h3>First slide label</h3>
-          <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+          <h3>Distance learning for kids</h3>
+          <p>Keep your child and keep him at home to learn.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -22,8 +22,8 @@ function MySlider() {
         />
 
         <Carousel.Caption>
-          <h3>Second slide label</h3>
-          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+          <h3>Make your child acquire new skills</h3>
+          <p>acquiring new skills increases children's IQ.</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -34,9 +34,9 @@ function MySlider() {
         />
 
         <Carousel.Caption>
-          <h3>Third slide label</h3>
+          <h3>Your child's smile while learning</h3>
           <p>
-            Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+          a simple explanation for the child makes him happy while learning.
           </p>
         </Carousel.Caption>
       </Carousel.Item>

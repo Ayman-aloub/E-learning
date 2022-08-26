@@ -43,7 +43,15 @@ function MyNavbar(props) {
   return (
     <Navbar bg="dark" variant="dark" expand="xl">
       <Container>
-        <Navbar.Brand to="/home">E-learning</Navbar.Brand>
+      <NavLink
+              to="/home"
+              className="me-3"
+              style={{ color: "white", textDecoration: "none" }}
+            >
+              <Navbar.Brand to="/home">E-learning</Navbar.Brand>
+            </NavLink>
+        
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
@@ -95,6 +103,7 @@ function MyNavbar(props) {
             <Button onClick={searchCourse} variant="outline-info" className='btn btn-primary text-white'>Search</Button>
           </Form> */}
           {/* -----------------------------search---------------------------- */}
+          <div className="me-0 d-flex">
           <Nav className="ms-auto">
             <NavDropdown
               id="nav-dropdown-dark-example"
@@ -162,9 +171,11 @@ function MyNavbar(props) {
                   })}
             </NavDropdown>
           </Nav>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
+
   );
 }
 const mapStateToprops = (state) => {

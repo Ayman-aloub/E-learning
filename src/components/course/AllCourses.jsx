@@ -62,8 +62,8 @@ function AllCourses(props) {
                         className=" btn btn-info me-2 "
                       >
                         {" "}
-                        Show Details
-                      </NavLink>
+                        Show Reviews
+                      </NavLink> 
                       <button
                         className=" btn btn-primary mb-2 ms-2"
                         name="enroll"

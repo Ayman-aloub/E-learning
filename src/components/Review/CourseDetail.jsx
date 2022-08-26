@@ -32,7 +32,8 @@ function CourseDetail(props) {
     useEffect(()=>{
         getCourseData();  
         try{
-            axios.get(`https://ammaryasser.pythonanywhere.com/api/review/index/course/${course_id}`).then((res)=>{
+            axios.get(`https://ammaryasser.pythonanywhere.com/api/review/index/course/${course_id}`)
+            .then((res)=>{
                 setReviews(res.data);
                 // console.log(res.data);
             })
@@ -94,9 +95,13 @@ function CourseDetail(props) {
                 <p className='descrip text-muted'>{course.course_description}</p>
                 {/* <p className="fw-bold">Course Instructor: <a href="#">{course.course_Instructor}</a></p>
                 <p className="fw-bold">Rating: {course.course_rate}</p> */}
+                {/* <h2 >Course Cotegory: </h2>
+                <p className='descrip text-muted'>{course.course_category.cat_name}</p> */}
+             
+            
             </div>
             <div className='col-lg-6 col-sm-12 col-md-12'>
-                <img variant="top" src={course.course_image} alt={course.course_name} height="500" width="600"/>
+                <img variant="top" src={course.course_image} alt={course.course_name} height="350" width="400"/>
             </div> 
         </div>
         </div>

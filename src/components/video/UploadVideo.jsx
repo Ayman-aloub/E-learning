@@ -1,21 +1,24 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { connect } from "react-redux";
-import { Route, useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
-
-
+import { Route, useNavigate } from "react-router-dom";
 
 function UploadVideo(props) {
-  let {course_id} =  useParams();
+  const [loading, loadingSet] = useState(false);
+  let { course_id } = useParams();
+  let navigate = useNavigate();
+
+
   function uploadvideosubmit(event) {
     event.preventDefault();
     console.log(event.target.url.files[0]);
+    loadingSet(true);
     axios
       .post(
         "https://ammaryasser.pythonanywhere.com/video/upload",
         {
-          course: course_id,
+          course: parseInt(course_id),
           title: event.target.title.value,
           url: event.target.url.files[0],
         },
@@ -27,9 +30,12 @@ function UploadVideo(props) {
         }
       )
       .then((response) => {
+        navigate(`/mycourses`);
+        loadingSet(false);
         console.log(response);
       })
       .catch((error) => {
+        loadingSet(false);
         console.log(error);
         // errorSet(error.response.data[Object.keys(error.response.data)[0]]);
         // loadingSet(false);
@@ -38,10 +44,40 @@ function UploadVideo(props) {
   return (
     <div>
       <form onSubmit={uploadvideosubmit} enctype="multipart/form-data">
-        <input type="text" id="title" name="title" />
-        <input type="file" id="video" name="url" />
-        {/* <input type="number" id="number" name="course" /> */}
-        <input type="submit" />
+        <div className="full-height bg-light container-fluid w-100 d-flex justify-content-center text-start align-items-center">
+          <div className="col-sm-8 col-md-6 col-lg-6 bg-white p-3">
+            <div className="">
+              <label htmlFor="title" className="d-inline mx-5 my-2">
+                video title
+              </label>
+              <input
+                type="text"
+                id="title"
+                name="title"
+                className="my-2"
+                required
+              />
+              <br />
+              {/* <label htmlFor="url" className="mx-5 my-2">
+              video{" "}
+            </label> */}
+              <input
+                type="file"
+                id="video"
+                name="url"
+                className="mx-5 my-2"
+                required
+              />
+              <br />
+              
+              {loading ? (
+            <div className="spinner-border text-info" role="status"></div>
+            ) : (<input type="submit" className="mx-5  my-2 btn btn-success" />)}
+
+          
+            </div>
+          </div>
+        </div>
       </form>
     </div>
   );

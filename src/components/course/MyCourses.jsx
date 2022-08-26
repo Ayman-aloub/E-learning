@@ -31,7 +31,7 @@ function MyCourses(props) {
       })
       .then((response) => {
         setCourses(response.data);
-      })
+      }) 
       .catch((error) => {
         console.log(error);
       });
@@ -64,7 +64,7 @@ function MyCourses(props) {
               {courses.map((course) => {
                 return (
                   <div className="col-lg-4 col-md-6 col-sm-12 text-center pt-2">
-                    <Card style={{ width: "18rem" }} className="me-3 mt-3">
+                    <Card style={{ width: "17.4rem" }} className="me-3 mt-3">
                       <Card.Img
                         variant="top"
                         src={course.course_image}
@@ -73,11 +73,11 @@ function MyCourses(props) {
                       />
                       <Card.Body>
                         <Card.Title>
-                          Course Title:{course.course_name}
+                          Course Name: {course.course_name}
                         </Card.Title>
                         <Card.Text className=" mt-3">
                           <p>
-                            Course Cotegory:{course.course_category.cat_name}
+                            Course Cotegory: {course.course_category.cat_name}
                           </p>
                         </Card.Text>
                         <NavLink
@@ -85,7 +85,7 @@ function MyCourses(props) {
                           className=" btn btn-primary mb-2 me-2"
                         >
                           {" "}
-                          Show Details
+                          Show Reviews
                         </NavLink>
                         <NavLink to={`/uploadvideo/${course.id}`} className="btn btn-primary mb-2">
                           {" "}
@@ -94,14 +94,14 @@ function MyCourses(props) {
                         <div className="f-flex">
                           <NavLink
                             to={`/update/${course.id}`}
-                            className=" btn btn-primary me-2"
+                            className=" btn btn-success me-2 mb-2"
                           >
                             {" "}
                             update
                           </NavLink>
                           <NavLink
                             to={`/delete/${course.id}`}
-                            className=" btn btn-danger ms-2"
+                            className=" btn btn-danger ms-2 mb-2 pl-2 pr-2"
                           >
                             {" "}
                             delete

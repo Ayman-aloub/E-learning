@@ -56,7 +56,7 @@ function submit(e){
   }
   useEffect(() => {
     axios
-      .get(`https://ammaryasser.pythonanywhere.com/video/${course_id}`, {
+      .get(`https://ammaryasser.pythonanywhere.com/video/list/${course_id}`, {
         headers: {
           Authorization: `token ${props.user.token}`,
         },
@@ -127,8 +127,7 @@ function submit(e){
                         
                       
                       </Form>    
-              </div>
-                        
+              </div>      
             </div>
             <br />     
           </div>
@@ -142,18 +141,27 @@ function submit(e){
         <ReactPlayer url={video.url} controls style={{ margin: "auto" }} />
         <div className="container mt-5">
           <div className="row">
-            <div className="col-6">
-              <div className="card">
+          <div className="col-6">
+                <div className="card">
                 {videolist.map((item, index) => (
-                  <div
-                    className="card bg-light m-2"
-                  >
-                    {item.title}
-                  </div>
-                ))}
+                    <div className="container card p-1 mb-2">
+                      <div className="row d-flex justify-content-between p-1">
+                        <div className="card col-6 bg-light m-2">
+                          {item.title}
+                        </div>
+                        <button
+                          type="button"
+                          className="btn  btn-info col-4 m-2"
+                          value={index}
+                          onClick={change}
+                        >
+                          watch
+                        </button>
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
-            
-            </div>
             <div className="col-6">
                   <Form onSubmit={submit}>
                     
