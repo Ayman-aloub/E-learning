@@ -15,6 +15,7 @@ function Video(props) {
   const [videolist, videolistSet] = useState([]);
   const [video_id, video_idtSet] = useState(1);
   let { course_id } = useParams();
+  const [loading, loadingSet] = useState(false);
 
   //new
   const [cats,setCats]=useState([]);
@@ -40,6 +41,7 @@ function submit(e){
     console.log(e.target.upload_assign.files[0]);
     e.preventDefault();
     console.log('ddddddd',video_id)
+    loadingSet(true);
     axios.post("https://ammaryasser.pythonanywhere.com/assignment/assignmentm/",{
       upload_assign: e.target.upload_assign.files[0],
       assignment_student:props.user.id,
@@ -52,7 +54,14 @@ function submit(e){
       'Authorization': `token ${props.user.token}`,
     }})
     .then(res=>{console.log("iam her",res.data);
-      return alert('Your assignment has been CREATED successfully')})
+      loadingSet(false);
+      return alert('Your assignment has been submited successfully')})
+      .catch((error) => {
+        loadingSet(false);
+        console.log(error);
+        // errorSet(error.response.data[Object.keys(error.response.data)[0]]);
+        // loadingSet(false);
+      });
   }
   useEffect(() => {
     axios
@@ -167,11 +176,15 @@ function submit(e){
                     
                         <MDBFile className="w-50" id='customFile' name="upload_assign" onChange={(e)=>handle(e)}/><br />
                         <br />
-                        <div className="d-flex">
+                        {loading ? (
+                        <div className="spinner-border text-info " style={{position: 'absolute', right: 0}} role="status">
+                        </div>
+                         ) : (<Button className="btn" style={{position: 'absolute', right : 0}} type="submit">submit</Button>)}
+                        {/* <div className="d-flex">
                               <div >
                                 <Button className="btn" type="submit">submit</Button>
                               </div>
-                        </div>
+                        </div> */}  
                         </Form> 
                </div>  
                  

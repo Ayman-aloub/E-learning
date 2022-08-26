@@ -21,7 +21,7 @@ function MyCourses(props) {
       url = `https://ammaryasser.pythonanywhere.com/course/studentcourses/`;
     }
 
-    console.log("url = ",url)
+    console.log("url = ", url);
     axios
       .get(url, {
         headers: {
@@ -43,12 +43,15 @@ function MyCourses(props) {
   function enroll(e) {
     console.log(props.user.token);
     axios
-      .get(`https://ammaryasser.pythonanywhere.com/course/enroll/${e.target.value}`, {
-        headers: {
-          "Content-Type": "application/json",
-          Authorization: `token ${props.user.token}`,
-        },
-      })
+      .get(
+        `https://ammaryasser.pythonanywhere.com/course/enroll/${e.target.value}`,
+        {
+          headers: {
+            "Content-Type": "application/json",
+            Authorization: `token ${props.user.token}`,
+          },
+        }
+      )
       .then((res) => {
         alert(res.data.message);
       });
@@ -61,9 +64,12 @@ function MyCourses(props) {
           <h1 className="text-center ">My Courses </h1>
           <div className="container ">
             <div className="row g-3 mx-auto">
-              {courses.map((course) => {
+              {courses.map((course, idx) => {
                 return (
-                  <div className="col-lg-4 col-md-6 col-sm-12 text-center pt-2">
+                  <div
+                    className="col-lg-4 col-md-6 col-sm-12 text-center pt-2"
+                    key={idx}
+                  >
                     <Card style={{ width: "17.4rem" }} className="me-3 mt-3">
                       <Card.Img
                         variant="top"
@@ -73,11 +79,11 @@ function MyCourses(props) {
                       />
                       <Card.Body>
                         <Card.Title>
-                          Course Name: {course.course_name}
+                          Course Title:{course.course_name}
                         </Card.Title>
                         <Card.Text className=" mt-3">
                           <p>
-                            Course Cotegory: {course.course_category.cat_name}
+                            Course Cotegory:{course.course_category.cat_name}
                           </p>
                         </Card.Text>
                         <NavLink
@@ -85,23 +91,26 @@ function MyCourses(props) {
                           className=" btn btn-primary mb-2 me-2"
                         >
                           {" "}
-                          Show Reviews
+                          Show Details
                         </NavLink>
-                        <NavLink to={`/uploadvideo/${course.id}`} className="btn btn-primary mb-2">
+                        <NavLink
+                          to={`/uploadvideo/${course.id}`}
+                          className="btn btn-primary mb-2"
+                        >
                           {" "}
                           Add Video
                         </NavLink>
                         <div className="f-flex">
                           <NavLink
                             to={`/update/${course.id}`}
-                            className=" btn btn-success me-2 mb-2"
+                            className=" btn btn-info me-2"
                           >
                             {" "}
                             update
                           </NavLink>
                           <NavLink
                             to={`/delete/${course.id}`}
-                            className=" btn btn-danger ms-2 mb-2 pl-2 pr-2"
+                            className=" btn btn-danger ms-2"
                           >
                             {" "}
                             delete
@@ -121,10 +130,13 @@ function MyCourses(props) {
           <h1 className="text-center ">My Courses </h1>
           <div className="container ">
             <div className="row g-3 mx-auto">
-              {courses.map((course) => {
+              {courses.map((course, idx) => {
                 return (
-                  <div className="col-lg-4 col-md-6 col-sm-12 text-center pt-2">
-                    <Card style={{ width: "18rem" }} className="me-3 mt-3">
+                  <div
+                    className="col-lg-4 col-md-6 col-sm-12 text-center pt-2"
+                    key={idx}
+                  >
+                    <Card style={{ width: "17.4rem" }} className="me-3 mt-3">
                       <Card.Img
                         variant="top"
                         src={course.course_image}
@@ -136,16 +148,26 @@ function MyCourses(props) {
                           Course Title:{course.course_name}
                         </Card.Title>
                         <Card.Text className=" mt-3">
-                          <p>Course Cotegory:{course.course_category}</p>
+                          <p>
+                            Course Cotegory:{course.course_category.cat_name}
+                          </p>
                         </Card.Text>
                         <NavLink
                           to={`/detail/${course.id}`}
                           className=" btn btn-primary mb-2 me-2"
                         >
                           {" "}
-                          Show Details
+                          Show Review
                         </NavLink>
-                        <button
+
+                        <NavLink
+                          to={`/video/${course.id}`}
+                          className=" btn btn-success mb-2 me-2"
+                        >
+                          {" "}
+                           playlist
+                        </NavLink>
+                        {/*<button
                           className=" btn btn-primary mb-2 ms-2"
                           name="enroll"
                           value={course.id}
@@ -153,7 +175,7 @@ function MyCourses(props) {
                         >
                           {" "}
                           Enroll
-                        </button>
+                </button>*/}
                       </Card.Body>
                     </Card>
                   </div>

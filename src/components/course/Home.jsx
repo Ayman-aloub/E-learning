@@ -1,7 +1,7 @@
-import Button from 'react-bootstrap/Button';
-import { NavLink } from 'react-router-dom';
-import MySlider from "./MySlider"
-import React, { useEffect } from 'react';
+import Button from "react-bootstrap/Button";
+import { NavLink } from "react-router-dom";
+import MySlider from "./MySlider";
+import React, { Fragment, useEffect } from "react";
 
 export default function Home() {
   useEffect(() => {
