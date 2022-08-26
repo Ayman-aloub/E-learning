@@ -10,7 +10,7 @@ const MyServices = () => {
             <div className="card" style={{ width: "18rem" }}>
               <div className="card-body">
                 <i className="fa-solid fa-chalkboard-user mb-3 icons"></i>
-                <h5 className="card-title">Learn anything</h5>
+                <h5 className="card-title">Learn Anything</h5>
                 <p className="card-text text-muted">
                   Explore any interest or trending topic, take prerequisites,
                   and advance your skills.
@@ -23,7 +23,7 @@ const MyServices = () => {
             <div className="card" style={{ width: "18rem" }}>
               <div className="card-body">
                 <i className="fa-solid fa-arrows-spin mb-3 icons"></i>
-                <h5 className="card-title">Flexible learning</h5>
+                <h5 className="card-title">Flexible Learning</h5>
                 <p className="card-text text-muted">
                   Learn at your own pace, move between multiple courses, or
                   switch to a different course.
