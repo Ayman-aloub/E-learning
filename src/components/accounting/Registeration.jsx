@@ -91,7 +91,7 @@ export default function Registeration() {
               type="password"
               name="password"
               placeholder="Password"
-              // pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,15}"
+              pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,15}"
               title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
               required
             />
@@ -109,7 +109,7 @@ export default function Registeration() {
               type="password"
               name="confirmpassword"
               placeholder="confirm Password"
-              // pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,15}"
+              pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,15}"
               required
             />
             {confirmpass.check && (

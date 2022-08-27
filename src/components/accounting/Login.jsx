@@ -69,7 +69,7 @@ function Login(props) {
               type="password"
               name="password"
               placeholder="Password"
-              // pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,15}"
+              pattern="(?=.*[0-9])(?=.*[a-z])(?=.*[A-Z])(?=.*[^a-zA-Z0-9]).{8,15}"
               title="Must contain at least one  number and one uppercase and lowercase letter, and at least 8 or more characters"
               required
             />
@@ -105,7 +105,7 @@ const mapStateToprops = (state) => {
     user: state.user,
   };
 };
-const mapdispatchToprops = (dispatch) => {
+const mapdispatchToprops = (dispatch) => { 
   return {
     setUserlocal: (username, password, is_staff, id) =>
       dispatch(setUserLocaally(username, password, is_staff, id)),

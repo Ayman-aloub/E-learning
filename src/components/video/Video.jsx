@@ -96,8 +96,8 @@ function submit(e){
     {props.user.is_staff == "true"?
     <div className="container mx-auto">
       <div className="w-100 ">
-        <div className="m-5">
-          <ReactPlayer url={video.url} controls style={{ margin: "auto" }} />
+        <div className="m-5"> 
+       {video.url?<ReactPlayer url={video.url} controls style={{ margin: "auto" }} />:<div className="alert alert-denger"> sorry there is no video in the playlist</div>}
           <div className="container mt-5">
             <div className="row">
               <div className="col-6">
@@ -147,7 +147,8 @@ function submit(e){
     <div className="container mx-auto">
     <div className="w-100 ">
       <div className="m-5">
-        <ReactPlayer url={video.url} controls style={{ margin: "auto" }} />
+
+      {video.url?<ReactPlayer url={video.url} controls style={{ margin: "auto" }} />:<div className="alert alert-denger"> sorry there is no video in the playlist</div>}
         <div className="container mt-5">
           <div className="row">
           <div className="col-6">
@@ -174,17 +175,19 @@ function submit(e){
             <div className="col-6">
                   <Form onSubmit={submit}>
                     
-                        <MDBFile className="w-50" id='customFile' name="upload_assign" onChange={(e)=>handle(e)}/><br />
-                        <br />
-                        {loading ? (
-                        <div className="spinner-border text-info " style={{position: 'absolute', right: 0}} role="status">
+                        <MDBFile className="w-50" id='customFile' name="upload_assign" onChange={(e)=>handle(e)} required/><br />
+                        <div className="d-flex">
+                            {loading ? (
+                            <div className="spinner-border text-info "  role="status">
+                            </div>
+                            ) : (<Button className="btn"  type="submit">submit</Button>)}
+                            {/* <div className="d-flex">
+                                  <div >
+                                    <Button className="btn" type="submit">submit</Button>
+                                  </div>
+                            </div> */}  
                         </div>
-                         ) : (<Button className="btn" style={{position: 'absolute', right : 0}} type="submit">submit</Button>)}
-                        {/* <div className="d-flex">
-                              <div >
-                                <Button className="btn" type="submit">submit</Button>
-                              </div>
-                        </div> */}  
+                        
                         </Form> 
                </div>  
                  

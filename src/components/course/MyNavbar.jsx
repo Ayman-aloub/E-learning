@@ -9,6 +9,9 @@ import Form from "react-bootstrap/Form";
 import { NavLink } from "react-router-dom";
 import { connect } from "react-redux";
 import { useEffect, useState } from "react";
+import {  useNavigate } from "react-router-dom";
+import { logout } from "../../redex/actions/getUser";
+// import { logout} from "react";
 
 function MyNavbar(props) {
   // -----------------------------search----------------------------
@@ -33,13 +36,19 @@ function MyNavbar(props) {
     { label: "Add Category", path: "/addcategory" },
     { label: "My Courses", path: "/mycourses" },
   ];
-
+  let navigate = useNavigate();
   let loggedIn = [{ label: "Logout", path: "/logout" }];
   let notLoggedIn = [
     { label: "Sign in", path: "/login" },
     { label: "Sign up", path: "/regesteration" },
   ];
 
+  function logout(){
+    let {set_logout} = props;
+    console.log('hello ammar')
+    set_logout()
+    navigate(`/allcourses`);
+  }
   return (
     <Navbar bg="dark" variant="dark" expand="xl">
       <Container>
@@ -114,9 +123,12 @@ function MyNavbar(props) {
                 ? loggedIn.map((e, index) => {
                     return (
                       <NavDropdown.Item key={index}>
-                        <NavLink className="" to={e.path}>
+                        {/* <NavLink className="" to={e.path}>
                           {e.label}
-                        </NavLink>
+                        </NavLink> */}
+                        <Button variant="info" type="submit" onClick={logout}>
+                              logout
+                        </Button>
                       </NavDropdown.Item>
                     );
                   })
@@ -183,4 +195,11 @@ const mapStateToprops = (state) => {
     user: state.user,
   };
 };
-export default connect(mapStateToprops)(MyNavbar);
+
+const mapdispatchToprops = (dispatch) => {
+  return {
+    set_logout: () =>
+      dispatch(logout()),
+  };
+};
+export default connect(mapStateToprops,mapdispatchToprops)(MyNavbar);
