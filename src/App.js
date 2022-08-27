@@ -22,6 +22,7 @@ import MyFooter from './components/Review/MyFooter';
 import Footer from "./components/Review/Footer/Footer";
 import MyServices from "./components/Review/MyServices";
 import ScrollArrow from "./components/Review/ScrollArrow"
+// import MyTopic from "./components/Review/MyTopic";
 // import Search from "./components/Review/Search";
 //-------------------alaaa-------------------------
 import MyNavbar from './components/course/MyNavbar';
@@ -37,6 +38,7 @@ import UpdateCourse from './components/course/UpdateCourse';
 import AllAssignment from "./components/assignment/AllAssignments";
 import UploadVideo from "./components/video/UploadVideo";
 import Error from './components/course/Error';
+
 
 
 
@@ -83,6 +85,7 @@ function App(props) {
 
         <Route path="*" element={<Error />}/>
       </Routes>
+      {/* <MyTopic/> */}
       <MyServices/>
       <MyFooter/>
       <Footer />

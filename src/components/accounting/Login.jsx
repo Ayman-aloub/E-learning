@@ -4,6 +4,7 @@ import { Button, Form } from "react-bootstrap";
 import { connect } from "react-redux";
 import { Route, useNavigate } from "react-router-dom";
 import { setUserLocaally } from "../../redex/actions/getUser";
+import "./css/Login.css";
 // asd #Asddsa5#
 function Login(props) {
   const { setUserlocal } = props;
@@ -45,9 +46,11 @@ function Login(props) {
       });
   };
   return (
-    <div className="full-height bg-light container-fluid w-100 d-flex justify-content-center text-start align-items-center">
-      <div className="col-sm-8 col-md-6 col-lg-4 bg-white p-3">
-        <Form onSubmit={LoginFormHandler}>
+    <div className="p-5 full-height bg-light container-fluid w-100 d-flex justify-content-center text-start align-items-center">
+      <div className="col-sm-8 col-md-6 col-lg-4 p-3 px-auto">
+        <Form className="Auth-form" onSubmit={LoginFormHandler}>
+        <div className="Auth-form-content">
+          <h3 className="Auth-form-title">Sign In</h3>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>User name</Form.Label>
             <Form.Control
@@ -84,17 +87,19 @@ function Login(props) {
           {error.length > 0 && (
             <div className="alert alert-danger">{error}</div>
           )}
-
+          
           {loading ? (
             <div className="spinner-border text-info" role="status"></div>
           ) : (
+            <div className="d-grid gap-2 mt-3">
             <Button variant="primary" type="submit">
               Submit
             </Button>
+            </div>
           )}
-          <a href="/resetpassword" className="d-block">
-            reset password
-          </a>
+          <p className="forgot-password text-right mt-2">Forgot <a href="/resetpassword">reset password</a>
+</p>
+        </div>
         </Form>
       </div>
     </div>

@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { connect } from "react-redux";
 import { useParams } from "react-router-dom";
+import {Button, Form} from 'react-bootstrap'
 import { Route, useNavigate } from "react-router-dom";
 
 function UploadVideo(props) {
@@ -44,7 +45,7 @@ function UploadVideo(props) {
   return (
     <div>
       <form onSubmit={uploadvideosubmit} enctype="multipart/form-data">
-        <div className="full-height bg-light container-fluid w-100 d-flex justify-content-center text-start align-items-center">
+        <div className="p-5 full-height bg-light container-fluid w-100 d-flex justify-content-center text-start align-items-center">
           <div className="col-sm-8 col-md-6 col-lg-6 bg-white p-3">
             <div className="">
               <label htmlFor="title" className="d-inline mx-5 my-2">
@@ -58,9 +59,6 @@ function UploadVideo(props) {
                 required
               />
               <br />
-              {/* <label htmlFor="url" className="mx-5 my-2">
-              video{" "}
-            </label> */}
               <input
                 type="file"
                 id="video"

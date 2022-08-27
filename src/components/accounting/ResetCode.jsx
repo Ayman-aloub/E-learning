@@ -2,6 +2,7 @@ import axios from "axios";
 import React, { useState } from "react";
 import { Button, Form } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
+import "./css/ResetCode.css";
 
 export default function ResetCode() {
   const [confirmpass, confirmpasswordSet] = useState({
@@ -61,9 +62,11 @@ export default function ResetCode() {
     }
   };
   return (
-    <div className="full-height bg-light container-fluid w-100 d-flex justify-content-center text-start align-items-center">
-      <div className="col-sm-8 col-md-6 col-lg-4 bg-white p-3">
-        <Form onSubmit={LoginFormHandler}>
+    <div className="p-5 full-height bg-light container-fluid w-100 d-flex justify-content-center text-start align-items-center">
+      <div className="col-sm-8 col-md-6 col-lg-4 p-3 px-auto">
+        <Form className="Auth-form" onSubmit={LoginFormHandler}>
+        <div className="Auth-form-content">
+          <h3 className="Auth-form-title">New Password</h3>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Code</Form.Label>
             <Form.Control
@@ -121,10 +124,13 @@ export default function ResetCode() {
           {loading ? (
             <div className="spinner-border text-info" role="status"></div>
           ) : (
+            <div className="d-grid gap-2 mt-3 mb-3">
             <Button variant="primary" type="submit">
               Submit
             </Button>
+            </div>
           )}
+          </div>
         </Form>
       </div>
     </div>

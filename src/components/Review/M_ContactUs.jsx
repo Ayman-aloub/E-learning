@@ -2,11 +2,13 @@ import React, { useRef } from "react";
 import {Button, Form} from 'react-bootstrap'
 import emailjs from "@emailjs/browser";
 import styled from "styled-components";
+import {  useNavigate } from "react-router-dom";
 import '../css/M_ContactUs.css'
 
 // npm i @emailjs/browser
 
 const ContactUS = () => {
+  let navigate = useNavigate();  
   const form = useRef();
 
   const sendEmail = (e) => {
@@ -22,6 +24,7 @@ const ContactUS = () => {
       .then(
         (result) => {
           console.log(result.text);
+          navigate(`/home`);
           console.log("shimaa sent");
         },
         (error) => {

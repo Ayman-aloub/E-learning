@@ -24,3 +24,18 @@
       
 //   )
 // }
+
+// {/* <Form onSubmit={uploadvideosubmit} enctype="multipart/form-data">
+//       <Form.Group className="mb-3" controlId="formBasicEmail">
+//         <Form.Label htmlFor="title">video title</Form.Label>
+//         <Form.Control type="text" name="title" className="my-2" required placeholder="Enter video title" />
+//       </Form.Group>
+
+//       <Form.Group className="mb-3" controlId="formBasicPassword">
+//         <Form.Label>upload</Form.Label>
+//         <Form.Control type="file" id="video" name="url" className="mx-5 my-2" required />
+//       </Form.Group>
+//       {loading ? (
+//             <div className="spinner-border text-info" role="status"></div>
+//             ) : (<input type="submit" className="mx-5  my-2 btn btn-success" />)}
+//     </Form> */}
