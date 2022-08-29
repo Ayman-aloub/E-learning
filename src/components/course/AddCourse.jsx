@@ -105,7 +105,7 @@ return(
           <Form.Label className='float-start'><h5>Course Image:</h5></Form.Label>
           <Form.Control  type="file" accept="image/*" name="course_image" className='mb-2' />
           {/* <img src={file} className='inputimg mt-2'/> */}
-        </Form.Group>
+        </Form.Group> 
 
    
         {/* <Form.Group className="mb-3 mt-1" >
