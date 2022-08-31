@@ -6,7 +6,7 @@ function MySlider() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={require("./img/slider-1.jpg")}
+          src={require("./img/slider-01.jpg")}
           alt="First slide"
         />
         <Carousel.Caption>
@@ -19,7 +19,7 @@ function MySlider() {
       <Carousel.Item>
         <img
           className="d-block w-100"
-          src={require("./img/slider-2.jpg")}
+          src={require("./img/slider-02.jpg")}
           alt="Second slide"
         />
 
@@ -34,7 +34,7 @@ function MySlider() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src={require("./img/slider-3.jpg")}
+            src={require("./img/slider-03.jpg")}
             alt="Third slide"
           />
 

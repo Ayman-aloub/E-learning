@@ -6,6 +6,8 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDocumentTitle } from "./setDocumentTitle";
 import { connect } from "react-redux";
+import {  useNavigate } from "react-router-dom";
+
 //new from ammar
 // import _ from "lodash";
 
@@ -13,6 +15,7 @@ import { connect } from "react-redux";
 function AllCourses(props) {
   const [document_title, setDoucmentTitle] = useDocumentTitle("All Courses");
   let [courses, setCourses] = useState([]);
+  let navigate = useNavigate();
   //new from ammar
   // const pageSize =8;
   // const[pagenatedPosts,setpagenatedPosts] = useState();
@@ -50,6 +53,7 @@ function AllCourses(props) {
       )
       .then((res) => {
         alert(res.data.message);
+        navigate(`/mycourses`);
       });
   }
   // new from ammar 

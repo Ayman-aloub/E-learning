@@ -76,17 +76,17 @@ function AddCourse(props){
 return(
  
   <div className='container mt-4 w-75'>
-      <div className='bg-secondary'> <h1>Add New Course</h1></div>
+      <div className='bg-light'> <h1>Add New Course</h1></div>
       <Form onSubmit={(e)=>submit(e)}>
         <Form.Group className="  my-3 " >
           <Form.Label className='float-start'><h5>Course Title:</h5></Form.Label>
-          <Form.Control  type="text"   name="course_name"value={data.course_name} onChange={(e)=>handle(e)}/>
+          <Form.Control  type="text" required   name="course_name"value={data.course_name} onChange={(e)=>handle(e)}/>
         
         </Form.Group>
 
         <Form.Group className="mb-3 " >
           <Form.Label className='float-start'><h5>Course Description:</h5></Form.Label>
-          <Form.Control  type="textarea"  value={data.course_description} name="course_description" onChange={(e)=>handle(e)}/>
+          <Form.Control  type="textarea"  required value={data.course_description} name="course_description" onChange={(e)=>handle(e)}/>
         </Form.Group>
 
         {/* <Form.Group className="mb-3 " >
@@ -103,7 +103,7 @@ return(
 
         <Form.Group className="mb-3 ms-0" >
           <Form.Label className='float-start'><h5>Course Image:</h5></Form.Label>
-          <Form.Control  type="file" accept="image/*" name="course_image" className='mb-2' />
+          <Form.Control  type="file" required accept="image/*" name="course_image" className='mb-2' />
           {/* <img src={file} className='inputimg mt-2'/> */}
         </Form.Group> 
 

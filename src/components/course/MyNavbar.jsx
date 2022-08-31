@@ -30,6 +30,8 @@ function MyNavbar(props) {
   //   }
   // }
   // -----------------------------search----------------------------
+  console.log("username is ",props.user.username)
+  console.log("hellooooo ",props.user.is_staff)
   let studentDropdown = [{ label: "My Courses", path: "/mycourses" }];
   let instructorDropdown = [
     { label: "Add Course", path: "/addcourse" },

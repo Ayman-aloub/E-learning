@@ -77,17 +77,18 @@ import {useDocumentTitle} from "./setDocumentTitle"
 return(
  
   <div className='container mt-4 w-75'>
-      <div className='bg-secondary'> <h1>Add New Category</h1></div>
+      <div className='bg-light'> <h1>Add New Category</h1></div>
       <Form onSubmit={(e)=>submit(e)}>
         <Form.Group className="  my-3 " >
           <Form.Label className='float-start'><h5>Category Name:</h5></Form.Label>
-          <Form.Control  type="text" name="cat_name" value={data.cat_name} onChange={(e)=>handle(e)}/>
+          <Form.Control  type="text" name="cat_name" required value={data.cat_name} onChange={(e)=>handle(e)}/>
         </Form.Group>
-        <button className='btn btn-primary p-2'>Add</button>
+        <button className='btn btn-primary p-2 ' style={{maxWidth: "110px",minWidth: "110px"}}>Add</button>
       </Form>
+      <br />
       <h3> Already Created:</h3>
       <ul>
-        <li>
+       
           {cats.map((category, index) => {
             return (
               <option key={index} value={category.id}>
@@ -95,7 +96,7 @@ return(
               </option>
             );
           })}
-        </li>
+       
       </ul>
     </div>
   );

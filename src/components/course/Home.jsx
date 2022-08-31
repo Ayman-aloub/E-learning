@@ -3,8 +3,9 @@ import { NavLink } from "react-router-dom";
 import MySlider from "./MySlider";
 import React, { Fragment, useEffect } from "react";
 import MyTopic from './../Review/MyTopic';
+import { connect } from "react-redux";
 
-export default function Home() {
+function Home(props) {
   useEffect(() => {
     document.title = `Home`;
   });
@@ -17,11 +18,21 @@ export default function Home() {
         <div className='row'>
           <div className='col-md-4'>
           </div>
+
       </div>
+      {props.user.is_staff == "true"?
+        <NavLink to="/mycourses"><Button variant="primary p-3 fw-bold fs-5">My Courses</Button></NavLink>
+        :
         <NavLink to="/allcourses"><Button variant="primary p-3 fw-bold fs-5">See All Courses</Button></NavLink>
+        
+      }
       </div>
-    
-    </>
-      
+    </> 
   )
 }
+const mapStateToprops = (state) => {
+  return {
+    user: state.user,
+  };
+};
+export default connect(mapStateToprops)(Home);

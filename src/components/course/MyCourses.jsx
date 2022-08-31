@@ -38,6 +38,7 @@ function MyCourses(props) {
   }
   useEffect(() => {
     getMyCourses();
+    console.log("ammar yasser")
   }, [props.user.token]);
 
   function enroll(e) {
@@ -87,11 +88,11 @@ function MyCourses(props) {
                           </p>
                         </Card.Text>
                         <NavLink
-                          to={`/detail/${course.id}`}
+                          to={`/video/${course.id}`}
                           className=" btn btn-info mb-2 me-2" style={{maxWidth: "120px",minWidth: "120px"}}
                         >
                           {" "}
-                          Show Details
+                          Play List
                         </NavLink>
                         <NavLink
                           to={`/uploadvideo/${course.id}`}

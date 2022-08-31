@@ -84,7 +84,7 @@ function UploadVideo(props) {
               
               {loading ? (
             <div className="spinner-border text-info" role="status"></div>
-            ) : (<input type="submit" className="mx-5  my-2 btn btn-success " />)}
+            ) : (<input type="submit" className="mx-5  my-2 btn btn-success" />)}
 
           
             </div>

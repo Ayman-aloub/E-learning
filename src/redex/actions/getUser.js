@@ -16,7 +16,7 @@ export function setUserLocaally(username, token, is_staff, id) {
   localStorage.setItem("id", id);
   return {
     type: "STOREDUSER",
-    payload: { username: username, token: token, is_staff: is_staff, id:id },
+    payload: { username: username, token: token, is_staff: `${is_staff}`, id:id },
   };
 }
 

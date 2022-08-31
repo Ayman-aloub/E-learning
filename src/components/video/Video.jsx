@@ -97,6 +97,7 @@ function submit(e){
     <div className="container mx-auto">
       <div className="w-100 ">
         <div className="m-5"> 
+        <h1>{video.title}</h1>
        {video.url?<ReactPlayer url={video.url} controls style={{ margin: "auto" }} />:<div className="alert alert-denger"> sorry there is no video in the playlist</div>}
           <div className="container mt-5">
             <div className="row">
@@ -133,8 +134,6 @@ function submit(e){
                               </p></NavLink>  
                             </div>
                       </div>
-                        
-                      
                       </Form>    
               </div>      
             </div>
