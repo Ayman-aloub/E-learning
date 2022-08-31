@@ -61,7 +61,7 @@ export default function Registeration() {
         <br />
         <Form className="Auth-form" onSubmit={RegisterFormHandler}>
         <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign Up</h3>
+          <h3 className="Auth-form-title text-primary">Sign Up</h3>
           <Form.Group className="mb-3" controlId="formBasicusername">
             <Form.Label>User Name</Form.Label>
             <Form.Control

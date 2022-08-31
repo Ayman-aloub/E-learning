@@ -72,7 +72,7 @@ export default function ChangePassword() {
       <div className="col-sm-8 col-md-6 col-lg-4 p-3 px-auto">
         <Form className="Auth-form" onSubmit={LoginFormHandler}>
         <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Change Password</h3>
+          <h3 className="Auth-form-title text-primary">Change Password</h3>
           <Form.Group className="mb-3">
             <Form.Label>old Password</Form.Label>
             <Form.Control

@@ -50,7 +50,7 @@ function Login(props) {
       <div className="col-sm-8 col-md-6 col-lg-4 p-3 px-auto">
         <Form className="Auth-form" onSubmit={LoginFormHandler}>
         <div className="Auth-form-content">
-          <h3 className="Auth-form-title">Sign In</h3>
+          <h3 className="Auth-form-title text-primary">Sign In</h3>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>User name</Form.Label>
             <Form.Control

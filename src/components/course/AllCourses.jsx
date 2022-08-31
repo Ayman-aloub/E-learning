@@ -7,16 +7,16 @@ import axios from "axios";
 import { useDocumentTitle } from "./setDocumentTitle";
 import { connect } from "react-redux";
 //new from ammar
-import _ from "lodash";
+// import _ from "lodash";
 
 
 function AllCourses(props) {
   const [document_title, setDoucmentTitle] = useDocumentTitle("All Courses");
   let [courses, setCourses] = useState([]);
   //new from ammar
-  const pageSize =8;
-  const[pagenatedPosts,setpagenatedPosts] = useState();
-  const[currentPage,setcurrentPage] = useState(1);
+  // const pageSize =8;
+  // const[pagenatedPosts,setpagenatedPosts] = useState();
+  // const[currentPage,setcurrentPage] = useState(1);
   
 
   function getAllCourses() {
@@ -26,7 +26,7 @@ function AllCourses(props) {
         setCourses(response.data);
         console.log("yaraaaaaaab tshta8al:", response.data);
         // new from ammar
-        setpagenatedPosts(_(response.data).slice(0).take(pageSize).value());
+        // setpagenatedPosts(_(response.data).slice(0).take(pageSize).value());
       })
       .catch((error) => {
         console.log(error);
@@ -53,16 +53,16 @@ function AllCourses(props) {
       });
   }
   // new from ammar 
-  const pageCount = courses? Math.ceil(courses.length/pageSize) :0;
-  if(pageCount === 1) return null;
-  const pages = _.range(1, pageCount + 1);
+  // const pageCount = courses? Math.ceil(courses.length/pageSize) :0;
+  // if(pageCount === 1) return null;
+  // const pages = _.range(1, pageCount + 1);
 
-  const pagination=(pageNo)=>{
-    setcurrentPage(pageNo);
-    const startIndex=(pageNo - 1) * pageSize;
-    const paginatedPost = _(courses).slice(startIndex).take(pageSize).value();
-    setpagenatedPosts(paginatedPost) 
-  };
+  // const pagination=(pageNo)=>{
+  //   setcurrentPage(pageNo);
+  //   const startIndex=(pageNo - 1) * pageSize;
+  //   const paginatedPost = _(courses).slice(startIndex).take(pageSize).value();
+  //   setpagenatedPosts(paginatedPost) 
+  // };
 
   return (
     <div className="alert alert-light p-5 ">
@@ -108,7 +108,7 @@ function AllCourses(props) {
           })}
           
           {/* add pagination new from ammar  */}
-          <nav className="d-flex justify-content-center">
+          {/* <nav className="d-flex justify-content-center">
             <ul className="pagination">
               {
               pages.map((page)=>(
@@ -122,7 +122,7 @@ function AllCourses(props) {
                   </li>
                 ))}
             </ul>
-          </nav>
+          </nav> */}
           
         </div>
       </div>

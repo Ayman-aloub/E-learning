@@ -66,7 +66,7 @@ export default function ResetCode() {
       <div className="col-sm-8 col-md-6 col-lg-4 p-3 px-auto">
         <Form className="Auth-form" onSubmit={LoginFormHandler}>
         <div className="Auth-form-content">
-          <h3 className="Auth-form-title">New Password</h3>
+          <h3 className="Auth-form-title text-primary">New Password</h3>
           <Form.Group className="mb-3" controlId="formBasicEmail">
             <Form.Label>Code</Form.Label>
             <Form.Control
