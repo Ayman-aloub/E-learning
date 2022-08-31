@@ -6,10 +6,18 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import { useDocumentTitle } from "./setDocumentTitle";
 import { connect } from "react-redux";
+//new from ammar
+import _ from "lodash";
+
 
 function AllCourses(props) {
   const [document_title, setDoucmentTitle] = useDocumentTitle("All Courses");
   let [courses, setCourses] = useState([]);
+  //new from ammar
+  const pageSize =8;
+  const[pagenatedPosts,setpagenatedPosts] = useState();
+  const[currentPage,setcurrentPage] = useState(1);
+  
 
   function getAllCourses() {
     axios
@@ -17,6 +25,8 @@ function AllCourses(props) {
       .then((response) => {
         setCourses(response.data);
         console.log("yaraaaaaaab tshta8al:", response.data);
+        // new from ammar
+        setpagenatedPosts(_(response.data).slice(0).take(pageSize).value());
       })
       .catch((error) => {
         console.log(error);
@@ -42,12 +52,24 @@ function AllCourses(props) {
         alert(res.data.message);
       });
   }
+  // new from ammar 
+  const pageCount = courses? Math.ceil(courses.length/pageSize) :0;
+  if(pageCount === 1) return null;
+  const pages = _.range(1, pageCount + 1);
+
+  const pagination=(pageNo)=>{
+    setcurrentPage(pageNo);
+    const startIndex=(pageNo - 1) * pageSize;
+    const paginatedPost = _(courses).slice(startIndex).take(pageSize).value();
+    setpagenatedPosts(paginatedPost) 
+  };
 
   return (
     <div className="alert alert-light p-5 ">
       <h1 className="text-center">All Courses </h1>
       <div className="container ">
         <div className="row g-3 mx-auto">
+        {/* pagenatedPosts */}
           {courses.map((course, idx) => {
             return (
               <>
@@ -60,7 +82,7 @@ function AllCourses(props) {
                       alt={course.course_name}
                     />
                     <Card.Body>
-                      <Card.Title>Course Name:{course.course_name}</Card.Title>
+                      <Card.Title>{course.course_name}</Card.Title>
                       <NavLink
                         to={`/detail/${course.id}`}
                         className=" btn btn-info me-2 "
@@ -80,9 +102,28 @@ function AllCourses(props) {
                     </Card.Body>
                   </Card>
                 </div>
+                
               </>
             );
           })}
+          
+          {/* add pagination new from ammar  */}
+          <nav className="d-flex justify-content-center">
+            <ul className="pagination">
+              {
+              pages.map((page)=>(
+                  <li className={
+                    page === currentPage? "page-item active" : "page-item"
+                  }
+                  >
+                    <p className="page-link"
+                    onClick={()=>pagination(page)}
+                    >{page}</p>
+                  </li>
+                ))}
+            </ul>
+          </nav>
+          
         </div>
       </div>
     </div>

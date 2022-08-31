@@ -67,10 +67,10 @@ function MyCourses(props) {
               {courses.map((course, idx) => {
                 return (
                   <div
-                    className="col-lg-4 col-md-6 col-sm-12 text-center pt-2"
+                    className="col-lg-3 col-md-6 col-sm-12 text-center pt-2"
                     key={idx}
                   >
-                    <Card style={{ width: "17.4rem" }} className="me-3 mt-3">
+                    <Card style={{ width: "17.8rem" }} className="me-3 mt-3">
                       <Card.Img
                         variant="top"
                         src={course.course_image}
@@ -79,7 +79,7 @@ function MyCourses(props) {
                       />
                       <Card.Body>
                         <Card.Title>
-                          Course Title:{course.course_name}
+                          {course.course_name}
                         </Card.Title>
                         <Card.Text className=" mt-3">
                           <p>
@@ -88,14 +88,14 @@ function MyCourses(props) {
                         </Card.Text>
                         <NavLink
                           to={`/detail/${course.id}`}
-                          className=" btn btn-primary mb-2 me-2"
+                          className=" btn btn-info mb-2 me-2" style={{maxWidth: "120px",minWidth: "120px"}}
                         >
                           {" "}
                           Show Details
                         </NavLink>
                         <NavLink
                           to={`/uploadvideo/${course.id}`}
-                          className="btn btn-primary mb-2"
+                          className="btn btn-primary mb-2" style={{maxWidth: "120px",minWidth: "120px"}}
                         >
                           {" "}
                           Add Video
@@ -103,17 +103,17 @@ function MyCourses(props) {
                         <div className="f-flex">
                           <NavLink
                             to={`/update/${course.id}`}
-                            className=" btn btn-info me-2"
+                            className=" btn btn-warning " style={{ maxWidth: "120px",minWidth: "120px"}}
                           >
                             {" "}
-                            update
+                            Update
                           </NavLink>
                           <NavLink
                             to={`/delete/${course.id}`}
-                            className=" btn btn-danger ms-2"
+                            className=" btn btn-danger ms-2 " style={{maxWidth: "120px",minWidth: "120px"}}
                           >
                             {" "}
-                            delete
+                            Delete
                           </NavLink>
                           {/* <button onClick={handleDelete} className=" btn btn-danger ms-2">delete</button> */}
                         </div>
@@ -145,7 +145,7 @@ function MyCourses(props) {
                       />
                       <Card.Body>
                         <Card.Title>
-                          Course Title:{course.course_name}
+                          {course.course_name}
                         </Card.Title>
                         <Card.Text className=" mt-3">
                           <p>
