@@ -8,8 +8,6 @@ import { useParams } from "react-router-dom";
 import {Button} from 'react-bootstrap'
 import { NavLink } from 'react-router-dom';
 
-
-
 function Video(props) {
   const [video, videoSet] = useState({});
   const [videolist, videolistSet] = useState([]);
@@ -59,8 +57,6 @@ function submit(e){
       .catch((error) => {
         loadingSet(false);
         console.log(error);
-        // errorSet(error.response.data[Object.keys(error.response.data)[0]]);
-        // loadingSet(false);
       });
   }
   useEffect(() => {
@@ -78,17 +74,7 @@ function submit(e){
       })
       .catch((error) => {
         console.log(error);
-        // errorSet(error.response.data[Object.keys(error.response.data)[0]]);
-        // loadingSet(false);
       });
-      // try{
-      //   axios.get("http://localhost:8000/category/list/")
-      //   .then((res)=>{
-      //     console.log("yaraaaaaaaaaaaab:",res.data);
-      //       });
-      //     }catch(error){
-      //       console.log(error);
-      //     }
   }, [props.user.token]);
   console.log(video_id);
   return (
@@ -96,8 +82,9 @@ function submit(e){
     {props.user.is_staff == "true"?
     <div className="container mx-auto">
       <div className="w-100 ">
-        <div className="m-5"> 
-        <h1>{video.title}</h1>
+        <div className="m-5">
+          <div className="text-secondary" style={{borderRadius:20}}><h1>{"Course Name : " + video.title}</h1></div> 
+        
        {video.url?<ReactPlayer url={video.url} controls style={{ margin: "auto" }} />:<div className="alert alert-denger"> sorry there is no video in the playlist</div>}
           <div className="container mt-5">
             <div className="row">
@@ -125,7 +112,6 @@ function submit(e){
               <div className="col-6">
                 <Form onSubmit={submit}>
                       <br />
-                      {/* <input type="submit" /> */}
                       <div className="d-flex">
                           
                             <div className="mx-3">
@@ -134,7 +120,7 @@ function submit(e){
                               </p></NavLink>  
                             </div>
                       </div>
-                      </Form>    
+                </Form>    
               </div>      
             </div>
             <br />     
@@ -173,29 +159,16 @@ function submit(e){
               </div>
             <div className="col-6">
                   <Form onSubmit={submit}>
-                    
                         <MDBFile className="w-50" id='customFile' name="upload_assign" onChange={(e)=>handle(e)} required/><br />
                         <div className="d-flex">
                             {loading ? (
                             <div className="spinner-border text-info "  role="status">
                             </div>
                             ) : (<Button className="btn"  type="submit">submit</Button>)}
-                            {/* <div className="d-flex">
-                                  <div >
-                                    <Button className="btn" type="submit">submit</Button>
-                                  </div>
-                            </div> */}  
-                        </div>
-                        
-                        </Form> 
-               </div>  
-                 
-                 
-                     
-          </div>
-         
-                 
-                
+                        </div> 
+                  </Form> 
+              </div>         
+          </div>    
         </div>
       </div>
     </div>

@@ -71,7 +71,7 @@ function MyCourses(props) {
                     className="col-lg-3 col-md-6 col-sm-12 text-center pt-2"
                     key={idx}
                   >
-                    <Card style={{ width: "17.8rem" }} className="me-3 mt-3">
+                    <Card style={{ width: "17.4rem" }} className="me-3 mt-3">
                       <Card.Img
                         variant="top"
                         src={course.course_image}
@@ -89,29 +89,44 @@ function MyCourses(props) {
                         </Card.Text>
                         <NavLink
                           to={`/video/${course.id}`}
-                          className=" btn btn-info mb-2 me-2" style={{maxWidth: "120px",minWidth: "120px"}}
+                          className=" btn btn-success mb-2 me-2 text-light" style={{maxWidth: "120px",minWidth: "120px"}}
                         >
                           {" "}
                           Play List
                         </NavLink>
-                        <NavLink
+                        {/* <NavLink
                           to={`/uploadvideo/${course.id}`}
-                          className="btn btn-primary mb-2" style={{maxWidth: "120px",minWidth: "120px"}}
+                          className="btn btn-primary mb-2 " style={{maxWidth: "120px",minWidth: "120px"}}
                         >
                           {" "}
                           Add Video
-                        </NavLink>
-                        <div className="f-flex">
-                          <NavLink
+                        </NavLink> */}
+                         <NavLink
                             to={`/update/${course.id}`}
-                            className=" btn btn-warning " style={{ maxWidth: "120px",minWidth: "120px"}}
+                            className=" btn btn-warning text-light  mb-2" style={{ maxWidth: "115px",minWidth: "115px"}}
                           >
                             {" "}
                             Update
                           </NavLink>
+                        <div className="f-flex">
+                          {/* <NavLink
+                            to={`/update/${course.id}`}
+                            className=" btn btn-warning text-light" style={{ maxWidth: "120px",minWidth: "120px"}}
+                          >
+                            {" "}
+                            Update
+                          </NavLink> */}
+
+                          <NavLink
+                          to={`/uploadvideo/${course.id}`}
+                          className="btn btn-primary" style={{maxWidth: "120px",minWidth: "120px"}}
+                        >
+                          {" "}
+                          Add Video
+                        </NavLink>
                           <NavLink
                             to={`/delete/${course.id}`}
-                            className=" btn btn-danger ms-2 " style={{maxWidth: "120px",minWidth: "120px"}}
+                            className=" btn btn-danger ms-2 " style={{maxWidth: "115px",minWidth: "115px"}}
                           >
                             {" "}
                             Delete
