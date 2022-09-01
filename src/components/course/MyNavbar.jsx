@@ -90,7 +90,7 @@ function MyNavbar(props) {
               className="me-3"
               style={{ color: "white", textDecoration: "none" }}
             >
-              About us
+              About Us
             </NavLink>
             <NavLink
               to="/contactus"
