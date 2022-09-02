@@ -43,7 +43,7 @@ function UpdateCourse(props) {
                 setData({
                     course_name:res.data.course_name,
                     course_description:res.data.course_description,
-                    course_category:res.data.course_category,
+                    course_category:res.data.course_category.cat_name,
                     course_image:res.data.course_image.name,
                     // course_instructor:res.data.course_instructor,
                     // student_course_name:res.data.student_course_name,
@@ -75,12 +75,8 @@ function UpdateCourse(props) {
         axios.put(`https://ammaryasser.pythonanywhere.com/course/rest/generics/${course_id}`,{
           course_name:data.course_name,
           course_description:data.course_description,
-          // course_rate:data.course_rate,
           course_image: e.target.course_image.files[0],
-          //course_image:data.course_image.name,
-          course_category:data.course_category,
-          // course_instructor:data.course_instructor,
-          // student_course_name:data.student_course_name
+          course_category:data.course_category.cat_name,
         },{headers:{
           'content-type':'multipart/form-data',
           'Accept': 'application/json, text/plain, */*',
@@ -99,6 +95,7 @@ function UpdateCourse(props) {
             newdata[e.target.name]=e.target.files[0]
             setData(newdata)
             setFile(URL.createObjectURL(e.target.files[0]));
+            console.log("ya allah",newdata);
           }else{
               newdata[e.target.name]= e.target.value
               setData(newdata)
@@ -131,12 +128,14 @@ function UpdateCourse(props) {
       <Form.Control  type="number" value={data.course_rate} name="course_rate" onChange={(e)=>handle(e)}/>
     </Form.Group> */}
 
-    <Form.Group className="mb-3" >
-      <Form.Label className='float-start' name="cat_name"><h5>Course Category:</h5></Form.Label>
+    {/* <Form.Group className="mb-3" >
+      <Form.Label className='float-start' name="course_category"><h5>Course Category:</h5></Form.Label>
       <Form.Select aria-label="Default select example" value={data.course_category} name="course_category" id="category" onChange={(e)=>handle(e)}>
         {cats.map((category,index)=>{return <option key={index} value={category.id}>{category.cat_name}</option>})}
       </Form.Select>
-    </Form.Group>
+    </Form.Group> */}
+
+   
 {/* 
     <Form.Group className="mb-3 ms-0" >
       <Form.Label className='float-start'><h5>Course Image:</h5></Form.Label>
@@ -147,7 +146,7 @@ function UpdateCourse(props) {
 
         <Form.Group className="mb-3 ms-0" >
           <Form.Label className='float-start'><h5>Course Image:</h5></Form.Label>
-          <div className="alert alert-warning">image should be updated</div>
+          {/* <div className="alert alert-warning">image should be updated</div> */}
           <Form.Control  type="file" accept="image/*" name="course_image" className='mb-2' />
           {/* <img src={file} className='inputimg mt-2'/> */}
         </Form.Group>
