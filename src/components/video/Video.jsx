@@ -78,7 +78,7 @@ function submit(e){
   }, [props.user.token]);
   console.log(video_id);
   return (
-    <div>
+    !video?<div className="alert alert-warning m-5">the playlist is empty</div>:<div>
     {props.user.is_staff == "true"?
     <div className="container mx-auto">
       <div className="w-100 ">

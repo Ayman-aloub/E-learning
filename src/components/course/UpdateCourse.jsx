@@ -107,62 +107,35 @@ function UpdateCourse(props) {
       
 
   return (
+  <>
+      <div className='mt-3 col-sm-10 col-md-8 col-lg-6 mx-auto'> <h1>Update Course</h1></div>
+      <div className='container mt-4 w-75 rounded col-sm-10 col-md-8 col-lg-6 bg-light pt-3 pb-3' style={{maxWidth: "700px", boxShadow: '1px 2px 9px #163E6B',}}>
+      
+    {/* <div className='container mt-4 w-75'> */}
+    {/* <div className='bg-secondary'> </div> */}
     
-  <div className='container mt-4 w-75'>
-  <div className='bg-secondary'> <h1>Update Course</h1></div>
-  
-  <Form onSubmit={(e)=>submit(e)}>
-    <Form.Group className="  my-3 " >
-      <Form.Label className='float-start'><h5>Course Title:</h5></Form.Label>
-      <Form.Control  type="text"   name="course_name"value={data.course_name} onChange={(e)=>handle(e)}/>
-    
-    </Form.Group>
+    <Form onSubmit={(e)=>submit(e)}>
+      <Form.Group className="  my-3 " >
+        <Form.Label className='float-start'><h5>Course Title:</h5></Form.Label>
+        <Form.Control  type="text"   name="course_name"value={data.course_name} onChange={(e)=>handle(e)}/>
+      
+      </Form.Group>
 
-    <Form.Group className="mb-3 " >
-      <Form.Label className='float-start'><h5>Course Description:</h5></Form.Label>
-      <Form.Control  type="textarea"  value={data.course_description} name="course_description" onChange={(e)=>handle(e)}/>
-    </Form.Group>
+      <Form.Group className="mb-3 " >
+        <Form.Label className='float-start'><h5>Course Description:</h5></Form.Label>
+        <Form.Control  type="textarea"  value={data.course_description} name="course_description" onChange={(e)=>handle(e)}/>
+      </Form.Group>
+          <Form.Group className="mb-3 ms-0" >
+            <Form.Label className='float-start'><h5>Course Image:</h5></Form.Label>
+            {/* <div className="alert alert-warning">image should be updated</div> */}
+            <Form.Control  type="file" accept="image/*" name="course_image" className='mb-2' />
+            {/* <img src={file} className='inputimg mt-2'/> */}
+          </Form.Group>
 
-    {/* <Form.Group className="mb-3 " >
-      <Form.Label className='float-start'><h5>Course Rate:</h5></Form.Label>
-      <Form.Control  type="number" value={data.course_rate} name="course_rate" onChange={(e)=>handle(e)}/>
-    </Form.Group> */}
-
-    {/* <Form.Group className="mb-3" >
-      <Form.Label className='float-start' name="course_category"><h5>Course Category:</h5></Form.Label>
-      <Form.Select aria-label="Default select example" value={data.course_category} name="course_category" id="category" onChange={(e)=>handle(e)}>
-        {cats.map((category,index)=>{return <option key={index} value={category.id}>{category.cat_name}</option>})}
-      </Form.Select>
-    </Form.Group> */}
-
-   
-{/* 
-    <Form.Group className="mb-3 ms-0" >
-      <Form.Label className='float-start'><h5>Course Image:</h5></Form.Label>
-      <div className="alert alert-warning">image should be updated</div>
-      <Form.Control  type="file" accept="image/*" name="course_image" className='mb-2'  onChange={(e)=>handle(e)} />
-      <img src={file} className='inputimg'/>
-    </Form.Group> */}
-
-        <Form.Group className="mb-3 ms-0" >
-          <Form.Label className='float-start'><h5>Course Image:</h5></Form.Label>
-          {/* <div className="alert alert-warning">image should be updated</div> */}
-          <Form.Control  type="file" accept="image/*" name="course_image" className='mb-2' />
-          {/* <img src={file} className='inputimg mt-2'/> */}
-        </Form.Group>
-
-    {/* <Form.Group className="mb-3 mt-1" >
-      <Form.Label className='float-start'><h5>Course Instructor:</h5></Form.Label>
-      <Form.Control  type="text"value={data.course_instructor} name="course_instructor" onChange={(e)=>handle(e)}/>
-    </Form.Group> */}
-
-    {/* <Form.Group className="mb-3 mt-1" >
-      <Form.Label className='float-start'><h5>Course student:</h5></Form.Label>
-      <Form.Control  type="text"value={data.student_course_name} name="student_course_name" onChange={(e)=>handle(e)}/>
-    </Form.Group> */}
-    <input type="submit" className='btn btn-primary p-2'/>
-  </Form>
-</div>
+      <input type="submit" className='btn btn-primary p-2'/>
+      </Form>
+      </div>
+</>
   )
 }
 

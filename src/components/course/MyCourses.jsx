@@ -149,7 +149,7 @@ function MyCourses(props) {
               {courses.map((course, idx) => {
                 return (
                   <div
-                    className="col-lg-4 col-md-6 col-sm-12 text-center pt-2"
+                    className="col-lg-3 col-md-6 col-sm-12 text-center pt-2"
                     key={idx}
                   >
                     <Card style={{ width: "17.4rem" }} className="me-3 mt-3">

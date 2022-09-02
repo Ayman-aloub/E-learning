@@ -118,40 +118,6 @@ function MyNavbar(props) {
           <Nav className="ms-auto">
             <NavDropdown
               id="nav-dropdown-dark-example"
-              title={props.user.token ? props.user.username : "Register/Login"}
-              menuVariant="dark"
-            >
-              {props.user.token
-                ? loggedIn.map((e, index) => {
-                    return (
-                      <NavDropdown.Item key={index}>
-                        {/* <NavLink className="" to={e.path}>
-                          {e.label}
-                        </NavLink> */}
-                        <Button variant="info" type="submit" onClick={logout}>
-                              logout
-                        </Button>
-                      </NavDropdown.Item>
-                    );
-                  })
-                : notLoggedIn.map((e, index) => {
-                    return (
-                      <NavDropdown.Item key={index}>
-                        <NavLink
-                          className="me-2 btn btn-outline-light"
-                          to={e.path}
-                          variant="outline-light"
-                        >
-                          {e.label}
-                        </NavLink>
-                      </NavDropdown.Item>
-                    );
-                  })}
-            </NavDropdown>
-          </Nav>
-          <Nav className="ms-auto">
-            <NavDropdown
-              id="nav-dropdown-dark-example"
               title="Dashboard"
               menuVariant="dark"
               className={props.user.token ? "d-block" : "d-none"}
@@ -185,6 +151,52 @@ function MyNavbar(props) {
                   })}
             </NavDropdown>
           </Nav>
+          <Nav className="ms-auto">
+            <NavDropdown
+              id="nav-dropdown-dark-example"
+              title={props.user.token ? props.user.username : "Register/Login"}
+              menuVariant="dark"
+            >
+              {props.user.token
+                ? loggedIn.map((e, index) => {
+                    return (
+                      <NavDropdown.Item key={index}>
+                        {/* <NavLink className="" to={e.path}>
+                          {e.label}
+                        </NavLink> */}
+                         {/* <Button variant="info" type="submit" onClick={logout}>
+                              change password
+                        </Button> */}
+                        <NavLink
+                            to="/changePassword"
+                            className="btn btn-warning mb-2"
+                           
+                          >
+                            change password
+                          </NavLink>
+                          <br />
+                        <Button variant="info" type="submit" style={{maxWidth: "150px",minWidth: "150px"}} onClick={logout}>
+                              logout
+                        </Button>
+                      </NavDropdown.Item>
+                    );
+                  })
+                : notLoggedIn.map((e, index) => {
+                    return (
+                      <NavDropdown.Item key={index}>
+                        <NavLink
+                          className="me-2 btn btn-outline-light"
+                          to={e.path}
+                          variant="outline-light"
+                        >
+                          {e.label}
+                        </NavLink>
+                      </NavDropdown.Item>
+                    );
+                  })}
+            </NavDropdown>
+          </Nav>
+       
           </div>
         </Navbar.Collapse>
       </Container>

@@ -42,13 +42,8 @@ import {useDocumentTitle} from "./setDocumentTitle"
           cats.some((category,index)=>{
             
             if(category.cat_name === data.cat_name){
-         // if(isFound){
               flag=false
-              // const newlist={list:[]}
-              // newlist[index]=[category.cat_name]
-              // setList(newlist)
               console.log("flag: ",flag);
-              // console.log("data from category:",category.cat_name,"     ","Entered data:",data.cat_name)
               return alert(`${data.cat_name} is already taken,please select new name`) 
             }
           })
@@ -86,18 +81,20 @@ return(
         <button className='btn btn-primary p-2 ' style={{maxWidth: "110px",minWidth: "110px"}}>Add</button>
       </Form>
       <br />
-      <h3> Already Created:</h3>
-      <ul>
-       
-          {cats.map((category, index) => {
-            return (
-              <option key={index} value={category.id}>
-                {category.cat_name}
-              </option>
-            );
-          })}
-       
-      </ul>
+      <div className="mx-auto"  style={{maxWidth: "700px", boxShadow: '1px 2px 9px #163E6B',}}>
+          <h3> Already Created</h3>
+          <ul>
+          
+              {cats.map((category, index) => {
+                return (
+                  <option key={index} value={category.id}>
+                    {category.cat_name}
+                  </option>
+                );
+              })}
+          
+          </ul>
+      </div>
     </div>
   );
 }

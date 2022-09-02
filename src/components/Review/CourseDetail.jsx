@@ -19,7 +19,7 @@ function CourseDetail(props) {
   const [rating, setRating] = useState(0);
   const [description, setDescription] = useState("");
 
-  function getCourseData() {
+  function getCourseData(props) {
     axios.get(`https://ammaryasser.pythonanywhere.com/course/rest/generics/${course_id}`)
       .then((response) => {
         setCourse(response.data);
@@ -64,7 +64,7 @@ function CourseDetail(props) {
     }
     return x;
   }
-
+console.log("hello props",props.user)
   return (
     <>
       {/* <div id='detait-c' className="d-flex">
@@ -139,9 +139,9 @@ function CourseDetail(props) {
         </div>
         <div id="Add-R">
           <h2 className="text-center mt-5">Add Review</h2>
-          <NavLink to={`/addreview/${course.id}`} className="btn btn-primary">
+          {props.user.token?<NavLink to={`/addreview/${course.id}`} className="btn btn-primary">
             Add Review
-          </NavLink>
+          </NavLink>:<div></div>}
           {/* -------form to add review------ */}
           {/* <div id="review">
                     <div class="container">

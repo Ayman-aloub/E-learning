@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import Form from 'react-bootstrap/Form';
 import {  useNavigate } from "react-router-dom";
 import {useDocumentTitle} from "./setDocumentTitle"
+import shadows from '@mui/material/styles/shadows';
 
 function AddCourse(props){
     const [document_title, setDoucmentTitle] = useDocumentTitle("Add New Course");
@@ -12,21 +13,12 @@ function AddCourse(props){
     const [data,setData]=useState({
       course_name:"",
       course_description:"",
-      // course_rate:"",
       course_image:"",
       course_category:"",
-      // course_instructor:"",
-      // student_course_name:""
+     
     })
     
-    // const [file, setFile] = useState();
-    // const handleFileChange=(event)=>{
-    //   setData({
-    //     ...data,
-    //     [event.target.name]:event.target.files[0]
-    //   })
-    //   setFile(URL.createObjectURL(event.target.files[0]));
-    // };
+
 
 
     function submit(e){
@@ -36,13 +28,9 @@ function AddCourse(props){
       axios.post("https://ammaryasser.pythonanywhere.com/course/upload_course/",{
         course_name:data.course_name,
         course_description:data.course_description,
-        // course_rate:data.course_rate,
-        // course_image:e.target.course_image.files[0],
         course_image: e.target.course_image.files[0],
-        //course_image:data.course_image.name,
         course_category:data.course_category,
         course_instructor:props.user.id,
-        // student_course_name:data.student_course_name
       },{headers:{
         'content-type':'multipart/form-data',
         'Accept': 'application/json, text/plain, */*',
@@ -74,9 +62,10 @@ function AddCourse(props){
       },[]);
 
 return(
- 
-  <div className='container mt-4 w-75'>
-      <div className='bg-light'> <h1>Add New Course</h1></div>
+ <> 
+   <div className='mt-3 col-sm-10 col-md-8 col-lg-6 mx-auto'> <h1>Add New Course</h1></div>
+  <div className='container mt-4 w-75 rounded col-sm-10 col-md-8 col-lg-6 bg-light pt-3' style={{maxWidth: "700px", boxShadow: '1px 2px 9px #163E6B',}}>
+     
       <Form onSubmit={(e)=>submit(e)}>
         <Form.Group className="  my-3 " >
           <Form.Label className='float-start'><h5>Course Title:</h5></Form.Label>
@@ -89,14 +78,9 @@ return(
           <Form.Control  type="textarea"  required value={data.course_description} name="course_description" onChange={(e)=>handle(e)}/>
         </Form.Group>
 
-        {/* <Form.Group className="mb-3 " >
-          <Form.Label className='float-start'><h5>Course Rate:</h5></Form.Label>
-          <Form.Control  type="number" value={data.course_rate} name="course_rate" onChange={(e)=>handle(e)}/>
-        </Form.Group> */}
-
         <Form.Group className="mb-3" >
           <Form.Label className='float-start' name="cat_name"><h5>Course Category:</h5></Form.Label>
-          <Form.Select aria-label="Default select example" value={data.course_category} name="course_category" id="category" onChange={(e)=>handle(e)}>
+          <Form.Select aria-label="Default select example" value={data.course_category} required name="course_category" id="category" onChange={(e)=>handle(e)}>
             {cats.map((category,index)=>{return <option key={index} value={category.pk}>{category.cat_name}</option>})}
           </Form.Select>
         </Form.Group>
@@ -104,23 +88,16 @@ return(
         <Form.Group className="mb-3 ms-0" >
           <Form.Label className='float-start'><h5>Course Image:</h5></Form.Label>
           <Form.Control  type="file" required accept="image/*" name="course_image" className='mb-2' />
-          {/* <img src={file} className='inputimg mt-2'/> */}
+         
         </Form.Group> 
 
-   
-        {/* <Form.Group className="mb-3 mt-1" >
-          <Form.Label className='float-start'><h5>Course Instructor:</h5></Form.Label>
-          <Form.Control  type="text"value={data.course_instructor} name="course_instructor" onChange={(e)=>handle(e)}/>
-        </Form.Group> */}
-
-        {/* <Form.Group className="mb-3 mt-1" >
-          <Form.Label className='float-start'><h5>Course student:</h5></Form.Label>
-          <Form.Control  type="text"value={data.student_course_name} name="student_course_name" onChange={(e)=>handle(e)}/>
-        </Form.Group> */}
-        <input type="submit" className='btn btn-primary p-2' />
-        {/* <button>submit</button> */}
+        <br />
+        <input type="submit" className='btn btn-primary p-2 mb-5 px-4' />
+       
       </Form>
     </div>
+    </>
+    
 );
 }
 const mapStateToprops = (state) => {

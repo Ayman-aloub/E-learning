@@ -41,6 +41,9 @@ function AllCourses(props) {
 
   function enroll(e) {
     console.log(props.user.token);
+    if(!props.user.token){
+      navigate(`/login`);
+    }
     axios
       .get(
         `https://ammaryasser.pythonanywhere.com/course/enroll/${e.target.value}`,
