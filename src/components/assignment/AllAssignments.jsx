@@ -68,7 +68,9 @@ export default function AllAssignment() {
     setData(newdata);
     console.log(newdata);
   }
+  console.log("the assignments is : ", assignments)
   return (
+    assignments.length==0?<div className="alert alert-warning m-5">the assignments is empty</div>:
     <div className="alert alert-light p-5 ">
       <h1 className="text-center">All Assignment </h1>
       <div className="container ">
