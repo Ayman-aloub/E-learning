@@ -73,7 +73,7 @@ function AllCourses(props) {
 
   return (
     <div className="alert alert-light p-5 ">
-      <h1 className="text-center">All Courses </h1>
+      <h1 className="text-center text-light bg-dark">All Courses </h1>
       <div className="container ">
         <div className="row g-3 mx-auto">
         {/* pagenatedPosts */}

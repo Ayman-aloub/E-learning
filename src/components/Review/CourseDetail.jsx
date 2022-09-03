@@ -90,9 +90,9 @@ console.log("hello props",props.user)
       <div className="container-fluid ">
         <div className="row d-flex detail">
           <div className="col-lg-6 col-sm-12 col-md-12">
-            <h2>Course Name : </h2>
+            <h2>Course Name </h2>
             <h3 className="mb-3 text-muted">{course.course_name}</h3>
-            <h2>Course Description : </h2>
+            <h2>Course Description  </h2>
             <p className="descrip text-muted">{course.course_description}</p>
             {/* <p className="fw-bold">Course Instructor: <a href="#">{course.course_Instructor}</a></p>
                 <p className="fw-bold">Rating: {course.course_rate}</p> */}
@@ -138,10 +138,11 @@ console.log("hello props",props.user)
           </div>
         </div>
         <div id="Add-R">
-          <h2 className="text-center mt-5">Add Review</h2>
-          {props.user.token?<NavLink to={`/addreview/${course.id}`} className="btn btn-primary">
+          
+          {props.user.token?<div><h2 className="text-center mt-5">Add Review</h2>
+          <NavLink to={`/addreview/${course.id}`} className="btn btn-primary">
             Add Review
-          </NavLink>:<div></div>}
+          </NavLink></div>:<div></div>}
           {/* -------form to add review------ */}
           {/* <div id="review">
                     <div class="container">

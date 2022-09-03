@@ -62,7 +62,7 @@ function MyCourses(props) {
     <div>
       {props.user.is_staff === "true" ? (
         <div className="alert alert-light p-5 ">
-          <h1 className="text-center ">My Courses </h1>
+          <h1 className="text-center text-light bg-dark ">My Courses </h1>
           <div className="container ">
             <div className="row g-3 mx-auto">
               {courses.map((course, idx) => {
@@ -92,7 +92,7 @@ function MyCourses(props) {
                           className=" btn btn-success mb-2 me-2 text-light" style={{maxWidth: "120px",minWidth: "120px"}}
                         >
                           {" "}
-                          Play List
+                          Playlist
                         </NavLink>
                         {/* <NavLink
                           to={`/uploadvideo/${course.id}`}
@@ -143,7 +143,7 @@ function MyCourses(props) {
         </div>
       ) : (
         <div className="alert alert-light p-5 ">
-          <h1 className="text-center ">My Courses </h1>
+          <h1 className="text-center text-light bg-dark">My Courses </h1>
           <div className="container ">
             <div className="row g-3 mx-auto">
               {courses.map((course, idx) => {

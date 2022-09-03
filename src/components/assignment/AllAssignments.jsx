@@ -51,7 +51,8 @@ export default function AllAssignment() {
       .then((response) => {
         setCourses(response.data);
         console.log(response.data);
-        navigate(`/allassignment/${course_id}`);
+        alert('Your gread has been sented successfully')
+        navigate(`/mycourses`);
       })
       .catch((error) => {
         console.log(error);
@@ -98,7 +99,7 @@ export default function AllAssignment() {
                 <Form.Control  type="text" name="grades" placeholder="assignment grade" value={assignment.grades} onChange={(e)=>handle(e)} required />
                 <br />
                 {/* <input type="submit" /> */}
-                
+                {/* <div className="alert alert-warning m-5">the playlist is empty</div> */}
                 <Button class="btn" type="submit">Submit</Button>
                 {/* <NavLink to={`/contactus`} style={{ textDecoration: 'none', color: 'white' }}><Button class="btn" type="submit">Submit</Button></NavLink> */}
                 </Form>

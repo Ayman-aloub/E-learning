@@ -83,7 +83,7 @@ function submit(e){
     <div className="container mx-auto">
       <div className="w-100 ">
         <div className="m-5">
-          <div className="text-secondary" style={{borderRadius:20}}><h1>{"Course Name : " + video.title}</h1></div> 
+          <div className="text-secondary" style={{borderRadius:20}}><h1>{"Video Name : " + video.title}</h1></div> 
         
        {video.url?<ReactPlayer url={video.url} controls style={{ margin: "auto" }} />:<div className="alert alert-denger"> sorry there is no video in the playlist</div>}
           <div className="container mt-5">
@@ -132,7 +132,7 @@ function submit(e){
     <div className="container mx-auto">
     <div className="w-100 ">
       <div className="m-5">
-      <div className="text-secondary" style={{borderRadius:20}}><h1>{"Course Name : " + video.title}</h1></div> 
+      <div className="text-secondary" style={{borderRadius:20}}><h1>{"Video Name : " + video.title}</h1></div> 
       {video.url?<ReactPlayer url={video.url} controls style={{ margin: "auto" }} />:<div className="alert alert-denger"> sorry there is no video in the playlist</div>}
         <div className="container mt-5">
           <div className="row">
